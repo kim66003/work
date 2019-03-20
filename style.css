@@ -1,3 +1,24 @@
 body {
-  padding-top: 70px;
+  padding-top: 50px;
+}
+
+.bg-image-full {
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+footer {
+    position: fixed;
+    background-color: #c5c6c9;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.navbar {
+  background-color: #1b8ec6;
+
 }
