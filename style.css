@@ -11,6 +11,11 @@ body {
   -o-background-size: cover;
 }
 
+form {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
 footer {
     position: fixed;
     background-color: #c5c6c9;
