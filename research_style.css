@@ -1,6 +1,8 @@
 body {
   padding-top: 50px;
   height: 100%;
+  background: #ffffff;
+  background: linear-gradient(to left, #cee0ff, #ffffff);
 }
 
 .bg-image-full {
