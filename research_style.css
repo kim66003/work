@@ -14,9 +14,9 @@ body {
 }
 
 footer {
-    position: fixed;
+    position: relative;
     background-color: #c5c6c9;
-    bottom: 0;
+    /* bottom: 0; */
     width: 100%;
     opacity: 0.6;
 }
