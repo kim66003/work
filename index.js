@@ -45,6 +45,8 @@ function categorizeAnswers(params) {
     }
 }
 
+var answers = answercombinations(cat_list)
+
 Survey
     .FunctionFactory
     .Instance
@@ -229,11 +231,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat het onze sociale verantwoordelijkheid is om een afspiegeling te zijn van de maatschappij",
+                    // text: "...omdat het onze sociale verantwoordelijkheid is om een afspiegeling te zijn van de maatschappij",
+                    text: answers[0][0],
                     score: 1,
                 }, {
                     value: "2",
-                    text: "...als kwaliteitsdoelen maar eerst gewaarborgd zijn",
+                    // text: "...als kwaliteitsdoelen maar eerst gewaarborgd zijn",
+                    text: answers[0][1],
                     score: 2,
                 }]
             }, {
@@ -243,11 +247,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat teamleden met verschillende culturele achtergronden elkaar versterken",
+                    // text: "...omdat teamleden met verschillende culturele achtergronden elkaar versterken",
+                    text: answers[1][0],
                     score: 3,
                 }, {
                     value: "2",
-                    text: "...omdat wij als organisatie moeten inspelen op het diverser worden van de markt",
+                    // text: "...omdat wij als organisatie moeten inspelen op het diverser worden van de markt",
+                    text: answers[1][1],
                     score: 4,
                 }]
             }, {
@@ -257,11 +263,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...zolang het maar niet ten koste gaat van het maximaliseren van onze prestaties",
+                    // text: "...zolang het maar niet ten koste gaat van het maximaliseren van onze prestaties",
+                    text: answers[2][0],
                     score: 1,
                 }, {
                     value: "2",
-                    text: "...omdat onze klantengroepen ook steeds diverser worden",
+                    // text: "...omdat onze klantengroepen ook steeds diverser worden",
+                    text: answers[2][1],
                     score: 2,
                 }]
             }, {
@@ -271,11 +279,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat wij als organisatie rechtvaardig moeten zijn",
+                    // text: "...omdat wij als organisatie rechtvaardig moeten zijn",
+                    text: answers[3][0],
                     score: 3,
                 }, {
                     value: "2",
-                    text: "...omdat het ons helpt als organisatie innovatief te zijn",
+                    // text: "...omdat het ons helpt als organisatie innovatief te zijn",
+                    text: answers[3][1],
                     score: 4,
                 }]
             }, {
@@ -285,11 +295,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat iemands culturele achtergrond er niet toe doet in het werk, het zijn kwalificaties die tellen",
+                    // text: "...omdat iemands culturele achtergrond er niet toe doet in het werk, het zijn kwalificaties die tellen",
+                    text: answers[4][0],
                     score: 1,
                 }, {
                     value: "2",
-                    text: "...omdat het helpt medewerkers te laten reflecteren op het eigen handelen",
+                    // text: "...omdat het helpt medewerkers te laten reflecteren op het eigen handelen",
+                    text: answers[4][1],
                     score: 2,
                 }]
             }, {
@@ -299,11 +311,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat het matchen van medewerkers met klanten/leveranciers op basis van culturele achtergrond ons marktaandeel kan vergroten",
+                    // text: "...omdat het matchen van medewerkers met klanten/leveranciers op basis van culturele achtergrond ons marktaandeel kan vergroten",
+                    text: answers[5][0],
                     score: 3,
                 }, {
                     value: "2",
-                    text: "...omdat wij als organisatie iedereen gelijke kansen moeten bieden",
+                    // text: "...omdat wij als organisatie iedereen gelijke kansen moeten bieden",
+                    text: answers[5][1],
                     score: 4,
                 }]
             }, {
@@ -313,11 +327,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat wij geen onderscheid moeten maken op basis van culturele achtergrond",
+                    // text: "...omdat wij geen onderscheid moeten maken op basis van culturele achtergrond",
+                    text: answers[6][0],
                     score: 1,
                 }, {
                     value: "2",
-                    text: "...omdat wij medewerkers met een achterstandspositie extra moeten ondersteunen",
+                    // text: "...omdat wij medewerkers met een achterstandspositie extra moeten ondersteunen",
+                    text: answers[6][1],
                     score: 2,
                 }]
             }, {
@@ -327,11 +343,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat het ons helpt om tunnelvisie in teams tegen te gaan",
+                    // text: "...omdat het ons helpt om tunnelvisie in teams tegen te gaan",
+                    text: answers[7][0],
                     score: 3,
                 }, {
                     value: "2",
-                    text: "...omdat kennis en ervaring uit een bepaalde cultuur ons helpt om producten en services af te stemmen op klanten met die cultuur",
+                    // text: "...omdat kennis en ervaring uit een bepaalde cultuur ons helpt om producten en services af te stemmen op klanten met die cultuur",
+                    text: answers[7][1],
                     score: 4,
                 }]
             }, {
@@ -341,11 +359,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat beoordeling objectief moet zijn, iemands culturele achtergrond speelt hierin geen rol",
+                    // text: "...omdat beoordeling objectief moet zijn, iemands culturele achtergrond speelt hierin geen rol",
+                    text: answers[8][0],
                     score: 1,
                 }, {
                     value: "2",
-                    text: "...omdat het ons toegang geeft tot een grotere visvijver aan talent",
+                    // text: "...omdat het ons toegang geeft tot een grotere visvijver aan talent",
+                    text: answers[8][1],
                     score: 2,
                 }]
             }, {
@@ -355,11 +375,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat wij culturele minderheden in de organisatie vooruit moeten helpen in hun loopbaan ",
+                    // text: "...omdat wij culturele minderheden in de organisatie vooruit moeten helpen in hun loopbaan ",
+                    text: answers[9][0],
                     score: 3,
                 }, {
                     value: "2",
-                    text: "...omdat het ons helpt nieuwe ideeën op de werkvloer te stimuleren",
+                    // text: "...omdat het ons helpt nieuwe ideeën op de werkvloer te stimuleren",
+                    text: answers[9][1],
                     score: 4,
                 }]
             }, {
@@ -369,11 +391,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat het ons helpt om vastgeroeste processen te doorbreken",
+                    // text: "...omdat het ons helpt om vastgeroeste processen te doorbreken",
+                    text: answers[10][0],
                     score: 1,
                 }, {
                     value: "2",
-                    text: "...omdat het uiteindelijk gaat om de beste kandidaat, ongeacht iemands culturele achtergrond",
+                    // text: "...omdat het uiteindelijk gaat om de beste kandidaat, ongeacht iemands culturele achtergrond",
+                    text: answers[10][1],
                     score: 2,
                 }]
             }, {
@@ -383,11 +407,13 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    text: "...omdat het ons een aantrekkelijkere werkgever maakt",
+                    // text: "...omdat het ons een aantrekkelijkere werkgever maakt",
+                    text: answers[11][0],
                     score: 3,
                 }, {
                     value: "2",
-                    text: "...omdat wij achterstandsgroepen in de samenleving een kans moeten bieden op werk",
+                    // text: "...omdat wij achterstandsgroepen in de samenleving een kans moeten bieden op werk",
+                    text: answers[11][1],
                     score: 4,
                 }]
             }],
@@ -396,24 +422,62 @@ var surveyJSON = {
     }, {
         "name": "page5",
         "elements": [{
+          type: "panel",
+          name: "panel5",
+          "elements": [{
+            type: "matrix",
+            name: "question21",
+            title: "Je krijgt nu telkens twee stellingen te zien die gaan over redenen om culturele diversiteit na te streven. Bepaal voor elke stelling in welke mate je eens of oneens ermee bent.",
+            columns: [
+                {
+                    value: 1,
+                    text: "Helemaal oneens"
+                }, {
+                    value: 2,
+                    text: "Oneens"
+                }, {
+                    value: 3,
+                    text: "Neutraal"
+                }, {
+                    value: 4,
+                    text: "Eens"
+                }, {
+                    value: 5,
+                    text: "Helemaal eens"
+                }
+            ],
+            rows: [
+                {
+                    value: "1",
+                    text: answers[0][0]
+                }, {
+                    value: "2",
+                    text: answers[0][1]
+                }
+            ]
+          }]
+        }]
+    }, {
+        "name": "page6",
+        "elements": [{
             "type": "panel",
-            "name": "panel5",
+            "name": "panel6",
             "elements": [{
                 type: "html",
-                name: "question21",
+                name: "question22",
                 visibleIf: "categorizeAnswers('question9') == 1",
                 html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Kwaliteit?</p><p>Dan sta je open voor culturele diversiteit, maar uiteindelijk gaat het om kwaliteit. Iedereen is welkom in de organisatie, als ze maar de juiste capaciteiten meebrengen. Het waarborgen van kwaliteit is zeker belangrijk voor een organisatie. Daarnaast is het mooi dat je iedereen gelijk behandelt en mensen niet in hokjes plaatst op basis van hun culturele achtergrond.</p><p>Er zit echter ook een keerzijde aan het kwaliteitsperspectief. Vaak zie je bij een focus op kwaliteit dat er uiteindelijk weinig van culturele diversiteit terecht komt.</p><p>Een voorbeeld is de huidige samenstelling van ons kabinet. Mark Rutte is iemand met het kwaliteitsperspectief. Zijn reactie op het geringe aantal vrouwen in het kabinet:</p><p><q>Ik had graag meer willen hebben, maar uiteindelijk geldt: we gaan voor de beste mensen. Het is wat het is.</q></p><p>Betekent dit dat er simpelweg niet voldoende gekwalificeerde kandidaten met een migratieachtergrond zijn? Onderzoek suggereert iets anders. Het blijkt dat het kwaliteitsperspectief ongelijkheid in een organisatie juist kan vergroten. Door geen aandacht te schenken aan het bestaan van culturele verschillen, worden vooroordelen vaak juist versterkt in plaats van weggenomen. <i>(lees meer: artikel)</i></p><p>Daarnaast is er een sterke nadruk op objectieve selectie- en beoordelingscriteria. Echter, door iedereen op precies dezelfde manier te beoordelen, is er weinig ruimte voor de inbreng van unieke eigenschappen. Dit zorgt ervoor dat medewerkers druk voelen om zich aan te passen. Daarbij wordt de potentiële meerwaarde van diversiteit niet benut.</p><p>>> Nieuwsgierig naar de andere perspectieven? Klik dan door.</p>"
             }],
             "title": "Onderdeel 2: Score en uitleg (jouw perspectief)"
         }],
     }, {
-        "name": "page6",
+        "name": "page7",
         "elements": [{
             type: "panel",
-            name: "panel5",
+            name: "panel7",
             "elements": [{
                 type: "html",
-                name: "question22",
+                name: "question23",
                 visibleIf: "categorizeAnswers('question9') == 2",
                 html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Eerlijkheid?</p><p> Dan vind je dat de organisatie een maatschappelijke verantwoordelijkheid heeft om zich in te zetten voor culturele diversiteit. Het is belangrijk om discriminatie tegen te gaan en achterstandsgroepen in de samenleving vooruit te helpen. Je vindt dat ieder mens gelijke kansen moet krijgen en dat de organisatie een afspiegeling zou moeten zijn van de samenleving.</p><p> Eerlijkheid is een nobel uitgangspunt. Je streeft naar culturele diversiteit als een doel dat losstaat van mogelijke uitkomsten. Het voordeel hiervan is dat de inzet op culturele diversiteit niet wordt beïnvloed door zaken als marktwerking.</p><p>Er zit echter ook een keerzijde aan het eerlijkheidsperspectief. Een actief diversiteitsbeleid dat inzet op extra ondersteuning van culturele minderheden roept al snel een angst op dat men hierin doorslaat. Niet altijd onterecht. In 2017 plaatste de politie een vacature met de volgende tekst:</p><p><q>Om te zorgen dat de samenstelling van de teamchefs daadwerkelijk diverser wordt, wordt een kandidaat geselecteerd met een andere culturele achtergrond.</q> <i>(lees meer: https://www.ad.nl/nieuws/politie-slaat-door-met-positieve-discriminatie~a0ef5edc/) </i></p><p> Positieve discriminatie roept weerstand op bij zowel de culturele meerderheid als culturele minderheden. De culturele meerderheid kan het idee hebben zelf geen kansen meer te hebben binnen de organisatie.  Culturele minderheden daarentegen kunnen het gevoel krijgen dat zij niet als gelijke worden gezien en niet op hun kwaliteiten zijn geselecteerd.</p><p> Daarnaast, hoewel je culturele diversiteit belangrijk vindt, zie je het voornamelijk als MVO onderwerp en niet als organisatieontwikkeling. Dit zorgt ervoor dat medewerkers druk voelen om zich aan te passen aan de huidige gang van zaken. Er is weinig ruimte voor unieke perspectieven en de potentiële meerwaarde van diversiteit wordt niet benut.</p><p> >> Nieuwsgierig naar de andere perspectieven? Klik dan door.</p>"
             }],
@@ -478,6 +542,15 @@ survey
 
     });
 
+survey.onValidateQuestion.add(function(survey, options) {
+    //the checkbox question 5
+    if (options.name === "question5") {
+        if (options.value && options.value.length < 3) {
+            //Set the error
+            options.error = "Please select a minimum of three values";
+        }
+    }
+});
 
 survey.showProgressBar = 'top';
 survey.requiredText = '';
