@@ -15,29 +15,24 @@ var cat_1 = ["1...omdat het onze sociale verantwoordelijkheid is om een afspiege
 var cat_2 = ["2...omdat het ons helpt als organisatie innovatief te zijn ", "2...omdat wij als organisatie rechtvaardig moeten zijn", "2...omdat het helpt medewerkers te laten reflecteren op het eigen handelen", "2...omdat iemands culturele achtergrond er niet toe doet in het werk, het zijn kwalificaties die tellen", "2...omdat het matchen van medewerkers met klanten/leveranciers op basis van culturele achtergrond ons marktaandeel kan vergroten", "2...omdat wij als organisatie iedereen gelijke kansen moeten bieden"]
 var cat_3 = ["3...omdat wij medewerkers met een achterstandspositie extra moeten ondersteunen", "3...omdat wij geen onderscheid moeten maken op basis van culturele achtergrond", "3...omdat het ons helpt om tunnelvisie in teams tegen te gaan", "3...omdat kennis en ervaring uit een bepaalde cultuur ons helpt om producten en services af te stemmen op klanten met die cultuur", "3...omdat beoordeling objectief moet zijn, iemands culturele achtergrond speelt hierin geen rol", "3...omdat het ons toegang geeft tot een grotere visvijver aan talent"]
 var cat_4 = ["4...omdat het ons helpt nieuwe ideeën op de werkvloer te stimuleren", "4...omdat wij culturele minderheden in de organisatie vooruit moeten helpen in hun loopbaan", "4...omdat het ons helpt om vastgeroeste processen te doorbreken", "4...omdat het uiteindelijk gaat om de beste kandidaat, ongeacht iemands culturele achtergrond", "4...omdat wij achterstandsgroepen in de samenleving een kans moeten bieden op werk", "4...omdat het ons een aantrekkelijkere werkgever maakt"]
+var length_cat = cat_1.length
+var cat_list = [cat_1, cat_2, cat_3, cat_4];
 
-var cat_list = [cat_1, cat_2, cat_3, cat_4]
-
-function answercombinations(cat_list) {
+function answercombinations(statements, length) {
     var combi_list = []
-
-    for (i = 0; i < 6; i++) {
-        var rand_stats = [cat_list[0][Math.floor(Math.random() * cat_list[0].length)], cat_list[1][Math.floor(Math.random() * cat_list[1].length)], cat_list[2][Math.floor(Math.random() * cat_list[2].length)], cat_list[3][Math.floor(Math.random() * cat_list[3].length)]]
-        cat_list[0].remove(rand_stats[0])
-        cat_list[1].remove(rand_stats[1])
-        cat_list[2].remove(rand_stats[2])
-        cat_list[3].remove(rand_stats[3])
+    for (i = 0; i < length; i++) {
+      var rand_stats = [statements[0][Math.floor(Math.random() * statements[0].length)], statements[1][Math.floor(Math.random() * statements[1].length)], statements[2][Math.floor(Math.random() * statements[2].length)], statements[3][Math.floor(Math.random() * statements[3].length)]]
+      for (j = 0; j < rand_stats.length; j++) {
+        statements[j].remove(rand_stats[j])
+      }
+      for (k = 0; k < 2; k++) {
         var stat1 = rand_stats[Math.floor(Math.random() * rand_stats.length)]
         rand_stats.remove(stat1)
         var stat2 = rand_stats[Math.floor(Math.random() * rand_stats.length)]
         rand_stats.remove(stat2)
-        var stat3 = rand_stats[Math.floor(Math.random() * rand_stats.length)]
-        rand_stats.remove(stat3)
-        var stat4 = rand_stats[0]
-        var combi1 = [stat1, stat2]
-        var combi2 = [stat3, stat4]
-        combi_list.push(combi1)
-        combi_list.push(combi2)
+        var combi = [stat1, stat2]
+        combi_list.push(combi)
+      }
     }
     return combi_list
 }

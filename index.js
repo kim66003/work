@@ -45,7 +45,8 @@ function categorizeAnswers(params) {
     }
 }
 
-var answers = answercombinations(cat_list)
+var answers = answercombinations(cat_list, length_cat)
+console.log(answers)
 
 Survey
     .FunctionFactory
@@ -428,6 +429,7 @@ var surveyJSON = {
             type: "matrix",
             name: "question21",
             title: "Je krijgt nu telkens twee stellingen te zien die gaan over redenen om culturele diversiteit na te streven. Bepaal voor elke stelling in welke mate je eens of oneens ermee bent.",
+            description: "Ik steun culturele diversiteit in onze organisatie...",
             columns: [
                 {
                     value: 1,
@@ -480,6 +482,32 @@ var surveyJSON = {
                 name: "question23",
                 visibleIf: "categorizeAnswers('question9') == 2",
                 html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Eerlijkheid?</p><p> Dan vind je dat de organisatie een maatschappelijke verantwoordelijkheid heeft om zich in te zetten voor culturele diversiteit. Het is belangrijk om discriminatie tegen te gaan en achterstandsgroepen in de samenleving vooruit te helpen. Je vindt dat ieder mens gelijke kansen moet krijgen en dat de organisatie een afspiegeling zou moeten zijn van de samenleving.</p><p> Eerlijkheid is een nobel uitgangspunt. Je streeft naar culturele diversiteit als een doel dat losstaat van mogelijke uitkomsten. Het voordeel hiervan is dat de inzet op culturele diversiteit niet wordt beïnvloed door zaken als marktwerking.</p><p>Er zit echter ook een keerzijde aan het eerlijkheidsperspectief. Een actief diversiteitsbeleid dat inzet op extra ondersteuning van culturele minderheden roept al snel een angst op dat men hierin doorslaat. Niet altijd onterecht. In 2017 plaatste de politie een vacature met de volgende tekst:</p><p><q>Om te zorgen dat de samenstelling van de teamchefs daadwerkelijk diverser wordt, wordt een kandidaat geselecteerd met een andere culturele achtergrond.</q> <i>(lees meer: https://www.ad.nl/nieuws/politie-slaat-door-met-positieve-discriminatie~a0ef5edc/) </i></p><p> Positieve discriminatie roept weerstand op bij zowel de culturele meerderheid als culturele minderheden. De culturele meerderheid kan het idee hebben zelf geen kansen meer te hebben binnen de organisatie.  Culturele minderheden daarentegen kunnen het gevoel krijgen dat zij niet als gelijke worden gezien en niet op hun kwaliteiten zijn geselecteerd.</p><p> Daarnaast, hoewel je culturele diversiteit belangrijk vindt, zie je het voornamelijk als MVO onderwerp en niet als organisatieontwikkeling. Dit zorgt ervoor dat medewerkers druk voelen om zich aan te passen aan de huidige gang van zaken. Er is weinig ruimte voor unieke perspectieven en de potentiële meerwaarde van diversiteit wordt niet benut.</p><p> >> Nieuwsgierig naar de andere perspectieven? Klik dan door.</p>"
+            }],
+            "title": "Onderdeel 2: Score en uitleg (jouw perspectief)"
+        }],
+    }, {
+        "name": "page8",
+        "elements": [{
+            "type": "panel",
+            "name": "panel8",
+            "elements": [{
+                type: "html",
+                name: "question24",
+                visibleIf: "categorizeAnswers('question9') == 3",
+                html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Toegang?</p><p>Dan zie je culturele diversiteit als een commerciële asset voor de organisatie. Het is noodzakelijk om verbinding te houden met een steeds diverser wordende samenleving en een groeiende visvijver van talent. Je bent ervan overtuigd dat culturele diversiteit zorgt voor een verscheidenheid aan netwerken en kennis in de organisatie. Daarbij helpt het ook bij klantenbinding: een gezamenlijke culturele achtergrond zorgt al snel voor meer vertrouwen en een gemakkelijkere communicatie.</p><p>Inzetten op toegang is zeer belangrijk voor een business organisatie. Het is mooi dat je een meerwaarde ziet in culturele diversiteit en dat wil benutten. Culturele diversiteit kan worden ingezet als een manier om het marktaandeel te vergroten en de geloofwaardigheid als organisatie te behouden.</p><p>Aandachtspunten bij het toegangsperspectief:</p><p>- Inzet op culturele diversiteit is afhankelijk van de samenstelling van de markt. Vaak zie je dat culturele diversiteit alleen in lagere segmenten van de organisatie aanwezig is. Medewerkers uit minderheidsgroepen kunnen het gevoel krijgen dat hun stem niet vertegenwoordigd is in de rest van de organisatie of dat zij enkel worden aangenomen op basis van hun culturele achtergrond.</p><p>- Door de focus op toegang tot externe markten, is er intern in de organisatie vaak weinig uitwisseling tussen medewerkers met verschillende culturele achtergronden. Dit kan leiden tot een scheiding tussen verschillende culturele groepen. Dit is niet goed voor de sociale samenhang. Daarnaast blijft de meerwaarde van culturele diversiteit beperkt.</p><p>>> Nieuwsgierig naar de andere perspectieven? Klik dan door.</p>"
+            }],
+            "title": "Onderdeel 2: Score en uitleg (jouw perspectief)"
+        }],
+    }, {
+        "name": "page9",
+        "elements": [{
+            type: "panel",
+            name: "panel9",
+            "elements": [{
+                type: "html",
+                name: "question25",
+                visibleIf: "categorizeAnswers('question9') == 4",
+                html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Leren?</p><p>Dan zie je culturele diversiteit als een bron van leren en innovatie voor de organisatie. Medewerkers met diverse culturele achtergronden brengen een verscheidenheid aan perspectieven met zich mee. In teamverband stimuleert dit creativiteit, vernieuwing en een betere besluitvorming. Verschillende invalshoeken in jouw team zetten je aan het denken. Dit is leerzaam en leidt op de lange termijn ook tot betere resultaten.</p><p>Het leerperspectief komt uit onderzoek naar voren als het perspectief dat samengaat met de meest positieve uitkomsten van culturele diversiteit. Leren en innovatie is belangrijk voor het voortbestaan van een organisatie. Het is mooi dat je inziet dat culturele diversiteit hierbij kan helpen.</p><p>Aandachtspunten bij Leren:</p><p>- Je waardeert de aanwezigheid van verschillende perspectieven in de werkomgeving. Meerdere perspectieven kunnen echter ook leiden tot conflict. Wanneer dit conflict negatief geladen is, kan het ervoor zorgen dat er geen positieve uitkomsten van culturele diversiteit meer behaald worden.</p><p>- Je ziet culturele diversiteit als een verrijking van de organisatie. Door een sterke focus op de meerwaarde van culturele verschillen kan het echter zijn dat de culturele meerderheid zich buitengesloten voelt en twijfelt over zijn/haar eigen positie.</p>"
             }],
             "title": "Onderdeel 2: Score en uitleg (jouw perspectief)"
         }],
