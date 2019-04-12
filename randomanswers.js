@@ -17,6 +17,14 @@ var cat_3 = ["3...omdat wij medewerkers met een achterstandspositie extra moeten
 var cat_4 = ["4...omdat het ons helpt nieuwe ideeën op de werkvloer te stimuleren", "4...omdat wij culturele minderheden in de organisatie vooruit moeten helpen in hun loopbaan", "4...omdat het ons helpt om vastgeroeste processen te doorbreken", "4...omdat het uiteindelijk gaat om de beste kandidaat, ongeacht iemands culturele achtergrond", "4...omdat wij achterstandsgroepen in de samenleving een kans moeten bieden op werk", "4...omdat het ons een aantrekkelijkere werkgever maakt"]
 var length_cat = cat_1.length
 var cat_list = [cat_1, cat_2, cat_3, cat_4];
+// var cat_dict1 = []
+// var listdict = []
+// for (i = 0; i < length_cat; i++) {
+//   temp1 = {
+//     text: cat_1[i],
+//     value: 1,
+//   }
+// }
 
 function answercombinations(statements, length) {
     var combi_list = []
