@@ -14,6 +14,7 @@ function categorizeAnswers(params) {
     for (var key in allQuestions) {
         var question = allQuestions[key][0]
         if (question.choices) {
+            // console.log(question)
             var qValue = question.value;
             if (qValue) {
                 question.choices.forEach(function(choice) {
@@ -30,6 +31,16 @@ function categorizeAnswers(params) {
                     }
                 });
             }
+        } else if (question.rows) {
+          console.log(question.rows[0])
+          var qValue = question.value;
+          // if (qValue) {
+          //   console.log()
+          //   question.rows.forEach(function(row) {
+          //     console.log(row)
+          //     console.log(row.score)
+          //   })
+          // }
         }
     }
     var allCats = [cat1, cat2, cat3, cat4]

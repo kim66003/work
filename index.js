@@ -1,4 +1,4 @@
-var answers = answercombinations(cat_list, length_cat)
+var answers = answercombinations(listdict, length_cat)
 console.log(answers)
 
 Survey
@@ -65,7 +65,7 @@ var surveyJSON = {
                 "type": "comment",
                 "name": "question2",
                 "visible": false,
-                "visibleIf": "{question2} = \"Ja\"",
+                "visibleIf": "{question1} = \"Ja\"",
                 "title": "Waarom?",
                 "isRequired": true,
                 "validators": [{
@@ -76,7 +76,7 @@ var surveyJSON = {
                 "type": "comment",
                 "name": "question3",
                 "visible": false,
-                "visibleIf": "{question2} = \"Nee\"",
+                "visibleIf": "{question1} = \"Nee\"",
                 "title": "Waarom niet?",
                 "isRequired": true,
                 "validators": [{
@@ -186,13 +186,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat het onze sociale verantwoordelijkheid is om een afspiegeling te zijn van de maatschappij",
-                    text: answers[0][0],
-                    score: 1,
+                    text: answers[0][0].text,
+                    score: answers[0][0].value,
                 }, {
                     value: "2",
                     // text: "...als kwaliteitsdoelen maar eerst gewaarborgd zijn",
-                    text: answers[0][1],
-                    score: 2,
+                    text: answers[0][1].text,
+                    score: answers[0][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -202,13 +202,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat teamleden met verschillende culturele achtergronden elkaar versterken",
-                    text: answers[1][0],
-                    score: 3,
+                    text: answers[1][0].text,
+                    score: answers[1][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat wij als organisatie moeten inspelen op het diverser worden van de markt",
-                    text: answers[1][1],
-                    score: 4,
+                    text: answers[1][1].text,
+                    score: answers[1][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -218,13 +218,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...zolang het maar niet ten koste gaat van het maximaliseren van onze prestaties",
-                    text: answers[2][0],
-                    score: 1,
+                    text: answers[2][0].text,
+                    score: answers[2][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat onze klantengroepen ook steeds diverser worden",
-                    text: answers[2][1],
-                    score: 2,
+                    text: answers[2][1].text,
+                    score: answers[2][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -234,13 +234,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat wij als organisatie rechtvaardig moeten zijn",
-                    text: answers[3][0],
-                    score: 3,
+                    text: answers[3][0].text,
+                    score: answers[3][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat het ons helpt als organisatie innovatief te zijn",
-                    text: answers[3][1],
-                    score: 4,
+                    text: answers[3][1].text,
+                    score: answers[3][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -250,13 +250,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat iemands culturele achtergrond er niet toe doet in het werk, het zijn kwalificaties die tellen",
-                    text: answers[4][0],
-                    score: 1,
+                    text: answers[4][0].text,
+                    score: answers[4][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat het helpt medewerkers te laten reflecteren op het eigen handelen",
-                    text: answers[4][1],
-                    score: 2,
+                    text: answers[4][1].text,
+                    score: answers[4][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -266,13 +266,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat het matchen van medewerkers met klanten/leveranciers op basis van culturele achtergrond ons marktaandeel kan vergroten",
-                    text: answers[5][0],
-                    score: 3,
+                    text: answers[5][0].text,
+                    score: answers[5][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat wij als organisatie iedereen gelijke kansen moeten bieden",
-                    text: answers[5][1],
-                    score: 4,
+                    text: answers[5][1].text,
+                    score: answers[5][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -282,13 +282,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat wij geen onderscheid moeten maken op basis van culturele achtergrond",
-                    text: answers[6][0],
-                    score: 1,
+                    text: answers[6][0].text,
+                    score: answers[6][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat wij medewerkers met een achterstandspositie extra moeten ondersteunen",
-                    text: answers[6][1],
-                    score: 2,
+                    text: answers[6][1].text,
+                    score: answers[6][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -298,13 +298,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat het ons helpt om tunnelvisie in teams tegen te gaan",
-                    text: answers[7][0],
-                    score: 3,
+                    text: answers[7][0].text,
+                    score: answers[7][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat kennis en ervaring uit een bepaalde cultuur ons helpt om producten en services af te stemmen op klanten met die cultuur",
-                    text: answers[7][1],
-                    score: 4,
+                    text: answers[7][1].text,
+                    score: answers[7][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -314,13 +314,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat beoordeling objectief moet zijn, iemands culturele achtergrond speelt hierin geen rol",
-                    text: answers[8][0],
-                    score: 1,
+                    text: answers[8][0].text,
+                    score: answers[8][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat het ons toegang geeft tot een grotere visvijver aan talent",
-                    text: answers[8][1],
-                    score: 2,
+                    text: answers[8][1].text,
+                    score: answers[8][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -330,13 +330,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat wij culturele minderheden in de organisatie vooruit moeten helpen in hun loopbaan ",
-                    text: answers[9][0],
-                    score: 3,
+                    text: answers[9][0].text,
+                    score: answers[9][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat het ons helpt nieuwe ideeën op de werkvloer te stimuleren",
-                    text: answers[9][1],
-                    score: 4,
+                    text: answers[9][1].text,
+                    score: answers[9][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -346,13 +346,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat het ons helpt om vastgeroeste processen te doorbreken",
-                    text: answers[10][0],
-                    score: 1,
+                    text: answers[10][0].text,
+                    score: answers[10][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat het uiteindelijk gaat om de beste kandidaat, ongeacht iemands culturele achtergrond",
-                    text: answers[10][1],
-                    score: 2,
+                    text: answers[10][1].text,
+                    score: answers[10][1].value,
                 }]
             }, {
                 type: "radiogroup",
@@ -362,13 +362,13 @@ var surveyJSON = {
                 choices: [{
                     value: "1",
                     // text: "...omdat het ons een aantrekkelijkere werkgever maakt",
-                    text: answers[11][0],
-                    score: 3,
+                    text: answers[11][0].text,
+                    score: answers[11][0].value,
                 }, {
                     value: "2",
                     // text: "...omdat wij achterstandsgroepen in de samenleving een kans moeten bieden op werk",
-                    text: answers[11][1],
-                    score: 4,
+                    text: answers[11][1].text,
+                    score: answers[11][1].value,
                 }]
             }],
             "title": "Onderdeel 1: Vragenlijst"
@@ -407,10 +407,28 @@ var surveyJSON = {
             rows: [
                 {
                     value: "1",
-                    text: answers[0][0]
+                    text: answers[0][0].text,
+                    score: answers[0][0].value
                 }, {
                     value: "2",
-                    text: answers[0][1]
+                    text: answers[0][1].text,
+                    score: answers[0][1].value
+                }, {
+                    value: "3",
+                    text: answers[1][0].text,
+                    score: answers[1][0].value
+                }, {
+                    value: "4",
+                    text: answers[1][1].text,
+                    score: answers[1][1].value
+                }, {
+                    value: "5",
+                    text: answers[2][0].text,
+                    score: answers[2][0].value
+                }, {
+                    value: "6",
+                    text: answers[2][1].text,
+                    score: answers[2][1].value
                 }
             ]
           }, {
@@ -437,11 +455,29 @@ var surveyJSON = {
             ],
             rows: [
                 {
-                    value: "1",
-                    text: answers[1][0]
+                    value: "7",
+                    text: answers[3][0].text,
+                    score: answers[3][0].value
                 }, {
-                    value: "2",
-                    text: answers[1][1]
+                    value: "8",
+                    text: answers[3][1].text,
+                    score: answers[3][1].value
+                }, {
+                    value: "9",
+                    text: answers[4][0].text,
+                    score: answers[4][0].value
+                }, {
+                    value: "10",
+                    text: answers[4][1].text,
+                    score: answers[4][1].value
+                }, {
+                    value: "11",
+                    text: answers[5][0].text,
+                    score: answers[5][0].value
+                }, {
+                    value: "12",
+                    text: answers[5][1].text,
+                    score: answers[5][1].text
                 }
             ]
           }, {
@@ -468,11 +504,29 @@ var surveyJSON = {
             ],
             rows: [
                 {
-                    value: "1",
-                    text: answers[2][0]
+                    value: "13",
+                    text: answers[6][0].text,
+                    score: answers[6][0].value
                 }, {
-                    value: "2",
-                    text: answers[2][1]
+                    value: "14",
+                    text: answers[6][1].text,
+                    score: answers[6][1].value
+                }, {
+                    value: "15",
+                    text: answers[7][0].text,
+                    score: answers[7][0].value
+                }, {
+                    value: "16",
+                    text: answers[7][1].text,
+                    score: answers[7][1].value
+                }, {
+                    value: "17",
+                    text: answers[8][0].text,
+                    score: answers[8][0].value
+                }, {
+                    value: "18",
+                    text: answers[8][1].text,
+                    score: answers[8][1].value
                 }
             ]
           }, {
@@ -499,11 +553,29 @@ var surveyJSON = {
             ],
             rows: [
                 {
-                    value: "1",
-                    text: answers[3][0]
+                    value: "19",
+                    text: answers[9][0].text,
+                    score: answers[9][0].value
                 }, {
-                    value: "2",
-                    text: answers[3][1]
+                    value: "20",
+                    text: answers[9][1].text,
+                    score: answers[9][1].value
+                }, {
+                    value: "21",
+                    text: answers[10][0].text,
+                    score: answers[10][0].value
+                }, {
+                    value: "22",
+                    text: answers[10][1].text,
+                    score: answers[10][1].value
+                }, {
+                    value: "23",
+                    text: answers[11][0].text,
+                    score: answers[11][0].value
+                }, {
+                    value: "24",
+                    text: answers[11][1].text,
+                    score: answers[11][1].value
                 }
             ]
           }]
