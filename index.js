@@ -1,10 +1,14 @@
 var answers = answercombinations(listdict, length_cat)
-console.log(answers)
 
 Survey
     .FunctionFactory
     .Instance
     .register("categorizeAnswers", categorizeAnswers);
+
+    Survey
+        .FunctionFactory
+        .Instance
+        .register("nextPage", nextPage);
 
 Survey
     .StylesManager
@@ -185,12 +189,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat het onze sociale verantwoordelijkheid is om een afspiegeling te zijn van de maatschappij",
                     text: answers[0][0].text,
                     score: answers[0][0].value,
                 }, {
                     value: "2",
-                    // text: "...als kwaliteitsdoelen maar eerst gewaarborgd zijn",
                     text: answers[0][1].text,
                     score: answers[0][1].value,
                 }]
@@ -201,12 +203,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat teamleden met verschillende culturele achtergronden elkaar versterken",
                     text: answers[1][0].text,
                     score: answers[1][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat wij als organisatie moeten inspelen op het diverser worden van de markt",
                     text: answers[1][1].text,
                     score: answers[1][1].value,
                 }]
@@ -217,12 +217,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...zolang het maar niet ten koste gaat van het maximaliseren van onze prestaties",
                     text: answers[2][0].text,
                     score: answers[2][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat onze klantengroepen ook steeds diverser worden",
                     text: answers[2][1].text,
                     score: answers[2][1].value,
                 }]
@@ -233,12 +231,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat wij als organisatie rechtvaardig moeten zijn",
                     text: answers[3][0].text,
                     score: answers[3][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat het ons helpt als organisatie innovatief te zijn",
                     text: answers[3][1].text,
                     score: answers[3][1].value,
                 }]
@@ -249,12 +245,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat iemands culturele achtergrond er niet toe doet in het werk, het zijn kwalificaties die tellen",
                     text: answers[4][0].text,
                     score: answers[4][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat het helpt medewerkers te laten reflecteren op het eigen handelen",
                     text: answers[4][1].text,
                     score: answers[4][1].value,
                 }]
@@ -265,12 +259,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat het matchen van medewerkers met klanten/leveranciers op basis van culturele achtergrond ons marktaandeel kan vergroten",
                     text: answers[5][0].text,
                     score: answers[5][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat wij als organisatie iedereen gelijke kansen moeten bieden",
                     text: answers[5][1].text,
                     score: answers[5][1].value,
                 }]
@@ -281,12 +273,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat wij geen onderscheid moeten maken op basis van culturele achtergrond",
                     text: answers[6][0].text,
                     score: answers[6][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat wij medewerkers met een achterstandspositie extra moeten ondersteunen",
                     text: answers[6][1].text,
                     score: answers[6][1].value,
                 }]
@@ -297,12 +287,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat het ons helpt om tunnelvisie in teams tegen te gaan",
                     text: answers[7][0].text,
                     score: answers[7][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat kennis en ervaring uit een bepaalde cultuur ons helpt om producten en services af te stemmen op klanten met die cultuur",
                     text: answers[7][1].text,
                     score: answers[7][1].value,
                 }]
@@ -313,12 +301,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat beoordeling objectief moet zijn, iemands culturele achtergrond speelt hierin geen rol",
                     text: answers[8][0].text,
                     score: answers[8][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat het ons toegang geeft tot een grotere visvijver aan talent",
                     text: answers[8][1].text,
                     score: answers[8][1].value,
                 }]
@@ -329,12 +315,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat wij culturele minderheden in de organisatie vooruit moeten helpen in hun loopbaan ",
                     text: answers[9][0].text,
                     score: answers[9][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat het ons helpt nieuwe ideeën op de werkvloer te stimuleren",
                     text: answers[9][1].text,
                     score: answers[9][1].value,
                 }]
@@ -345,12 +329,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat het ons helpt om vastgeroeste processen te doorbreken",
                     text: answers[10][0].text,
                     score: answers[10][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat het uiteindelijk gaat om de beste kandidaat, ongeacht iemands culturele achtergrond",
                     text: answers[10][1].text,
                     score: answers[10][1].value,
                 }]
@@ -361,12 +343,10 @@ var surveyJSON = {
                 isRequired: true,
                 choices: [{
                     value: "1",
-                    // text: "...omdat het ons een aantrekkelijkere werkgever maakt",
                     text: answers[11][0].text,
                     score: answers[11][0].value,
                 }, {
                     value: "2",
-                    // text: "...omdat wij achterstandsgroepen in de samenleving een kans moeten bieden op werk",
                     text: answers[11][1].text,
                     score: answers[11][1].value,
                 }]
@@ -588,51 +568,189 @@ var surveyJSON = {
             "elements": [{
                 type: "html",
                 name: "html5",
-                visibleIf: "categorizeAnswers('question9') == 1",
-                html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Kwaliteit?</p><p>Dan sta je open voor culturele diversiteit, maar uiteindelijk gaat het om kwaliteit. Iedereen is welkom in de organisatie, als ze maar de juiste capaciteiten meebrengen. Het waarborgen van kwaliteit is zeker belangrijk voor een organisatie. Daarnaast is het mooi dat je iedereen gelijk behandelt en mensen niet in hokjes plaatst op basis van hun culturele achtergrond.</p><p>Er zit echter ook een keerzijde aan het kwaliteitsperspectief. Vaak zie je bij een focus op kwaliteit dat er uiteindelijk weinig van culturele diversiteit terecht komt.</p><p>Een voorbeeld is de huidige samenstelling van ons kabinet. Mark Rutte is iemand met het kwaliteitsperspectief. Zijn reactie op het geringe aantal vrouwen in het kabinet:</p><p><q>Ik had graag meer willen hebben, maar uiteindelijk geldt: we gaan voor de beste mensen. Het is wat het is.</q></p><p>Betekent dit dat er simpelweg niet voldoende gekwalificeerde kandidaten met een migratieachtergrond zijn? Onderzoek suggereert iets anders. Het blijkt dat het kwaliteitsperspectief ongelijkheid in een organisatie juist kan vergroten. Door geen aandacht te schenken aan het bestaan van culturele verschillen, worden vooroordelen vaak juist versterkt in plaats van weggenomen. <i>(lees meer: artikel)</i></p><p>Daarnaast is er een sterke nadruk op objectieve selectie- en beoordelingscriteria. Echter, door iedereen op precies dezelfde manier te beoordelen, is er weinig ruimte voor de inbreng van unieke eigenschappen. Dit zorgt ervoor dat medewerkers druk voelen om zich aan te passen. Daarbij wordt de potentiële meerwaarde van diversiteit niet benut.</p><p>>> Nieuwsgierig naar de andere perspectieven? Klik dan door.</p>"
-            }],
-            "title": "Onderdeel 2: Score en uitleg (jouw perspectief)"
-        }],
-    }, {
-        "name": "page7",
-        "elements": [{
-            type: "panel",
-            name: "panel7",
-            "elements": [{
+                visibleIf: "categorizeAnswers(0) == 1",
+                html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Kwaliteit?</p><p>Dan sta je open voor culturele diversiteit, maar uiteindelijk gaat het om kwaliteit. Iedereen is welkom in de organisatie, als ze maar de juiste capaciteiten meebrengen. Het waarborgen van kwaliteit is zeker belangrijk voor een organisatie. Daarnaast is het mooi dat je iedereen gelijk behandelt en mensen niet in hokjes plaatst op basis van hun culturele achtergrond.</p><p>Er zit echter ook een keerzijde aan het kwaliteitsperspectief. Vaak zie je bij een focus op kwaliteit dat er uiteindelijk weinig van culturele diversiteit terecht komt.</p><p>Een voorbeeld is de huidige samenstelling van ons kabinet. Mark Rutte is iemand met het kwaliteitsperspectief. Zijn reactie op het geringe aantal vrouwen in het kabinet:</p><blockquote><p>Ik had graag meer willen hebben, maar uiteindelijk geldt: we gaan voor de beste mensen. Het is wat het is.</p></blockquote><p>Betekent dit dat er simpelweg niet voldoende gekwalificeerde kandidaten met een migratieachtergrond zijn? Onderzoek suggereert iets anders. Het blijkt dat het kwaliteitsperspectief ongelijkheid in een organisatie juist kan vergroten. Door geen aandacht te schenken aan het bestaan van culturele verschillen, worden vooroordelen vaak juist versterkt in plaats van weggenomen. <i>(lees meer: artikel)</i></p><p>Daarnaast is er een sterke nadruk op objectieve selectie- en beoordelingscriteria. Echter, door iedereen op precies dezelfde manier te beoordelen, is er weinig ruimte voor de inbreng van unieke eigenschappen. Dit zorgt ervoor dat medewerkers druk voelen om zich aan te passen. Daarbij wordt de potentiële meerwaarde van diversiteit niet benut.</p><p>>> Nieuwsgierig naar de andere perspectieven? <button type='button' onclick='nextPage(1)'>Klik dan door</button></p>"
+            }, {
                 type: "html",
                 name: "html6",
-                visibleIf: "categorizeAnswers('question9') == 2",
-                html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Eerlijkheid?</p><p> Dan vind je dat de organisatie een maatschappelijke verantwoordelijkheid heeft om zich in te zetten voor culturele diversiteit. Het is belangrijk om discriminatie tegen te gaan en achterstandsgroepen in de samenleving vooruit te helpen. Je vindt dat ieder mens gelijke kansen moet krijgen en dat de organisatie een afspiegeling zou moeten zijn van de samenleving.</p><p> Eerlijkheid is een nobel uitgangspunt. Je streeft naar culturele diversiteit als een doel dat losstaat van mogelijke uitkomsten. Het voordeel hiervan is dat de inzet op culturele diversiteit niet wordt beïnvloed door zaken als marktwerking.</p><p>Er zit echter ook een keerzijde aan het eerlijkheidsperspectief. Een actief diversiteitsbeleid dat inzet op extra ondersteuning van culturele minderheden roept al snel een angst op dat men hierin doorslaat. Niet altijd onterecht. In 2017 plaatste de politie een vacature met de volgende tekst:</p><p><q>Om te zorgen dat de samenstelling van de teamchefs daadwerkelijk diverser wordt, wordt een kandidaat geselecteerd met een andere culturele achtergrond.</q> <i>(lees meer: https://www.ad.nl/nieuws/politie-slaat-door-met-positieve-discriminatie~a0ef5edc/) </i></p><p> Positieve discriminatie roept weerstand op bij zowel de culturele meerderheid als culturele minderheden. De culturele meerderheid kan het idee hebben zelf geen kansen meer te hebben binnen de organisatie.  Culturele minderheden daarentegen kunnen het gevoel krijgen dat zij niet als gelijke worden gezien en niet op hun kwaliteiten zijn geselecteerd.</p><p> Daarnaast, hoewel je culturele diversiteit belangrijk vindt, zie je het voornamelijk als MVO onderwerp en niet als organisatieontwikkeling. Dit zorgt ervoor dat medewerkers druk voelen om zich aan te passen aan de huidige gang van zaken. Er is weinig ruimte voor unieke perspectieven en de potentiële meerwaarde van diversiteit wordt niet benut.</p><p> >> Nieuwsgierig naar de andere perspectieven? Klik dan door.</p>"
-            }],
-            "title": "Onderdeel 2: Score en uitleg (jouw perspectief)"
-        }],
-    }, {
-        "name": "page8",
-        "elements": [{
-            "type": "panel",
-            "name": "panel8",
-            "elements": [{
+                visibleIf: "categorizeAnswers(0) == 2",
+                html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Eerlijkheid?</p><p> Dan vind je dat de organisatie een maatschappelijke verantwoordelijkheid heeft om zich in te zetten voor culturele diversiteit. Het is belangrijk om discriminatie tegen te gaan en achterstandsgroepen in de samenleving vooruit te helpen. Je vindt dat ieder mens gelijke kansen moet krijgen en dat de organisatie een afspiegeling zou moeten zijn van de samenleving.</p><p> Eerlijkheid is een nobel uitgangspunt. Je streeft naar culturele diversiteit als een doel dat losstaat van mogelijke uitkomsten. Het voordeel hiervan is dat de inzet op culturele diversiteit niet wordt beïnvloed door zaken als marktwerking.</p><p>Er zit echter ook een keerzijde aan het eerlijkheidsperspectief. Een actief diversiteitsbeleid dat inzet op extra ondersteuning van culturele minderheden roept al snel een angst op dat men hierin doorslaat. Niet altijd onterecht. In 2017 plaatste de politie een vacature met de volgende tekst:</p><blockquote><p>Om te zorgen dat de samenstelling van de teamchefs daadwerkelijk diverser wordt, wordt een kandidaat geselecteerd met een andere culturele achtergrond.</p></blockquote> <i><a href='https://www.ad.nl/nieuws/politie-slaat-door-met-positieve-discriminatie~a0ef5edc/'>Lees hier meer</a> </i></p><p> Positieve discriminatie roept weerstand op bij zowel de culturele meerderheid als culturele minderheden. De culturele meerderheid kan het idee hebben zelf geen kansen meer te hebben binnen de organisatie.  Culturele minderheden daarentegen kunnen het gevoel krijgen dat zij niet als gelijke worden gezien en niet op hun kwaliteiten zijn geselecteerd.</p><p> Daarnaast, hoewel je culturele diversiteit belangrijk vindt, zie je het voornamelijk als MVO onderwerp en niet als organisatieontwikkeling. Dit zorgt ervoor dat medewerkers druk voelen om zich aan te passen aan de huidige gang van zaken. Er is weinig ruimte voor unieke perspectieven en de potentiële meerwaarde van diversiteit wordt niet benut.</p><p> >> Nieuwsgierig naar de andere perspectieven? <button type='button' onclick='nextPage(2)'>Klik dan door</button></p>"
+            }, {
                 type: "html",
                 name: "html7",
-                visibleIf: "categorizeAnswers('question9') == 3",
-                html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Toegang?</p><p>Dan zie je culturele diversiteit als een commerciële asset voor de organisatie. Het is noodzakelijk om verbinding te houden met een steeds diverser wordende samenleving en een groeiende visvijver van talent. Je bent ervan overtuigd dat culturele diversiteit zorgt voor een verscheidenheid aan netwerken en kennis in de organisatie. Daarbij helpt het ook bij klantenbinding: een gezamenlijke culturele achtergrond zorgt al snel voor meer vertrouwen en een gemakkelijkere communicatie.</p><p>Inzetten op toegang is zeer belangrijk voor een business organisatie. Het is mooi dat je een meerwaarde ziet in culturele diversiteit en dat wil benutten. Culturele diversiteit kan worden ingezet als een manier om het marktaandeel te vergroten en de geloofwaardigheid als organisatie te behouden.</p><p>Aandachtspunten bij het toegangsperspectief:</p><p>- Inzet op culturele diversiteit is afhankelijk van de samenstelling van de markt. Vaak zie je dat culturele diversiteit alleen in lagere segmenten van de organisatie aanwezig is. Medewerkers uit minderheidsgroepen kunnen het gevoel krijgen dat hun stem niet vertegenwoordigd is in de rest van de organisatie of dat zij enkel worden aangenomen op basis van hun culturele achtergrond.</p><p>- Door de focus op toegang tot externe markten, is er intern in de organisatie vaak weinig uitwisseling tussen medewerkers met verschillende culturele achtergronden. Dit kan leiden tot een scheiding tussen verschillende culturele groepen. Dit is niet goed voor de sociale samenhang. Daarnaast blijft de meerwaarde van culturele diversiteit beperkt.</p><p>>> Nieuwsgierig naar de andere perspectieven? Klik dan door.</p>"
+                visibleIf: "categorizeAnswers(0) == 3",
+                html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Toegang?</p><p>Dan zie je culturele diversiteit als een commerciële asset voor de organisatie. Het is noodzakelijk om verbinding te houden met een steeds diverser wordende samenleving en een groeiende visvijver van talent. Je bent ervan overtuigd dat culturele diversiteit zorgt voor een verscheidenheid aan netwerken en kennis in de organisatie. Daarbij helpt het ook bij klantenbinding: een gezamenlijke culturele achtergrond zorgt al snel voor meer vertrouwen en een gemakkelijkere communicatie.</p><p>Inzetten op toegang is zeer belangrijk voor een business organisatie. Het is mooi dat je een meerwaarde ziet in culturele diversiteit en dat wil benutten. Culturele diversiteit kan worden ingezet als een manier om het marktaandeel te vergroten en de geloofwaardigheid als organisatie te behouden.</p><p>Aandachtspunten bij het toegangsperspectief:</p><p>- Inzet op culturele diversiteit is afhankelijk van de samenstelling van de markt. Vaak zie je dat culturele diversiteit alleen in lagere segmenten van de organisatie aanwezig is. Medewerkers uit minderheidsgroepen kunnen het gevoel krijgen dat hun stem niet vertegenwoordigd is in de rest van de organisatie of dat zij enkel worden aangenomen op basis van hun culturele achtergrond.</p><p>- Door de focus op toegang tot externe markten, is er intern in de organisatie vaak weinig uitwisseling tussen medewerkers met verschillende culturele achtergronden. Dit kan leiden tot een scheiding tussen verschillende culturele groepen. Dit is niet goed voor de sociale samenhang. Daarnaast blijft de meerwaarde van culturele diversiteit beperkt.</p><p>>> Nieuwsgierig naar de andere perspectieven? <button type='button' onclick='nextPage(3)'>Klik dan door</button></p>"
+            }, {
+                type: "html",
+                name: "html8",
+                visibleIf: "categorizeAnswers(0) == 4",
+                html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Leren?</p><p>Dan zie je culturele diversiteit als een bron van leren en innovatie voor de organisatie. Medewerkers met diverse culturele achtergronden brengen een verscheidenheid aan perspectieven met zich mee. In teamverband stimuleert dit creativiteit, vernieuwing en een betere besluitvorming. Verschillende invalshoeken in jouw team zetten je aan het denken. Dit is leerzaam en leidt op de lange termijn ook tot betere resultaten.</p><p>Het leerperspectief komt uit onderzoek naar voren als het perspectief dat samengaat met de meest positieve uitkomsten van culturele diversiteit. Leren en innovatie is belangrijk voor het voortbestaan van een organisatie. Het is mooi dat je inziet dat culturele diversiteit hierbij kan helpen.</p><p>Aandachtspunten bij Leren:</p><p>- Je waardeert de aanwezigheid van verschillende perspectieven in de werkomgeving. Meerdere perspectieven kunnen echter ook leiden tot conflict. Wanneer dit conflict negatief geladen is, kan het ervoor zorgen dat er geen positieve uitkomsten van culturele diversiteit meer behaald worden.</p><p>- Je ziet culturele diversiteit als een verrijking van de organisatie. Door een sterke focus op de meerwaarde van culturele verschillen kan het echter zijn dat de culturele meerderheid zich buitengesloten voelt en twijfelt over zijn/haar eigen positie.</p><p>>> Nieuwsgierig naar de andere perspectieven? <button type='button' onclick='nextPage(4)'>Klik dan door</button></p>"
             }],
             "title": "Onderdeel 2: Score en uitleg (jouw perspectief)"
         }],
     }, {
+      "name": "page7",
+      "elements": [{
+          "type": "panel",
+          "name": "panel7",
+          "elements": [{
+              "type": "html",
+              "name": "html9",
+              "html": "<p>Waarom vindt PostNL het belangrijk om in te zetten op culturele diversiteit?</p><p><b>Oorsprong</b></p><p>Door een krappe arbeidsmarkt zet PostNL de afgelopen jaren steeds meer in op het aantrekken van multicultureel talent. Anderzijds geven medewerkers aan dat ze het fijn zouden vinden als er ook meer diversiteit is op het hoofdkantoor. De huidige culturele verschillen tussen medewerkers op het hoofdkantoor en de bezorgers en subcontractors zorgt in de praktijk voor diversiteitsgerelateerde problemen zoals miscommunicatie, vooroordelen en conflict. Vooral cultureel diverse teams in lagere segmenten in de organisatie hebben de afgelopen jaren te maken gehad met spanningen.</p><blockquote><p>Met een diverse samenstelling van onze medewerkerspopulatie willen wij een afspiegeling zijn van de samenleving. PostNL is een bedrijf waar een ieder zich veilig en geaccepteerd kan voelen binnen alle lagen van ons bedrijf.</p></blockquote><p>In de praktijk leidt dit streven echter ook tot negatieve opmerkingen naar culturele minderheden:</p><blockquote><p>Jij bent aangenomen op basis van je achtergrond</p></blockquote><blockquote><p>Iemand zit alleen op die positie door zijn kleur</p></blockquote><blockquote><p>Ze hebben mij niet genomen omdat ik de beste ben, maar omdat ik een vrouw ben</p></blockquote><p><b>Streven</b></p><p>Doordat PostNL geen monopolie positie meer heeft in de markt, is het voor PostNL vandaag de dag nog belangrijker geworden om nieuwe klanten te bereiken.</p><blockquote><p>Door het creëren van een inclusieve werkomgeving kunnen wij de wensen en behoeften van onze klanten en andere belanghebbenden beter begrijpen, waardoor onze wendbaarheid en innovatiekracht toeneemt. D&I is daarmee van groot belang voor een duurzame toekomst van PostNL.</p></blockquote><p>Door een diverse samenstelling van de medewerkerspopulatie is de organisatie beter in staat haar klanten in de wijk te bedienen. PostNL loopt momenteel nog een grote doelgroep mis doordat er bijvoorbeeld geen verbinding is met klanten uit de Turkse gemeenschap. Hier kan in de toekomst nog meer op worden ingespeeld. Door de ontwikkeling van nieuwe producten en diensten is PostNL beter in staat nieuwe klanten te bereiken.</p><p>Uit interviews blijkt dat PostNL graag meer culturele diversiteit wil zien in hogere segmenten in de organisatie. Dit streven wordt ook in de top breed gedragen:</p><blockquote><p>Wij zijn nooit klaar en voelen altijd de urgentie tot verbetering. Om te werken aan onze ambities, zetten wij met name in op bewustwording, toerusting, kennisdeling en een positieve benaderingswijze. Onze acties zijn er op gericht om de intrinsieke motivatie te vergroten waardoor het gevoel van inclusiviteit en acceptatie stijgt en een verder toenemende diversiteit zal ontstaan.</p></blockquote><p>Sinds 5 jaar wordt er meer gekeken naar een betere in- en doorstroom van culturele minderheden in de organisatie. Wel wordt er nog door procesmanagers gesteld dat er eigenlijk te weinig <q>tijd voor de mens</q> is om veel aandacht te kunnen besteden aan diversiteit in de werkomgeving.</p><p>De organisatie cultuur binnen PostNL wordt omschreven als een erg <q>hollandse cultuur</q>. Dit maakt dat medewerkers afkomstig uit diverse culturele groepen uit de samenleving soms moeite hebben om zich te verhouden naar de dominante <q>hollandse</q> normen en waarden in de organisatie. Als gevolg is het voor culturele minderheden niet altijd makkelijk om door te groeien in de organisatie. Tegelijkertijd is er momenteel een tekort aan goede leidinggevenden die in staat zijn cultureel diverse teams aan te sturen. Deze moeten vaak extern gehaald worden.</p>",
+        }],
+        "title": "Onderdeel 3: Organisatieperspectief (jouw perspectief in relatie tot het organisatieperspectief)",
+      }],
+    }, {
+      "name": "page8",
+      "elements": [{
+          "type": "panel",
+          "name": "panel8",
+          "elements": [{
+            "type": "radiogroup",
+            "name": "question22",
+            "title": "Herken jij bovenstaande motivatie van PostNL om in te zetten op culturele diversiteit ook in jouw werkomgeving?",
+            "choices": ["Ja", "Nee"],
+          }, {
+              "type": "comment",
+              "name": "question23",
+              "visible": false,
+              "visibleIf": "{question22} = \"Ja\"",
+              "title": "Indien je je herkent in de motivatie van PostNL om aan de slag te gaan met culturele diversiteit in je werkomgeving, schrijf dan op waarom.",
+              "isRequired": true,
+              "validators": [{
+                  "type": "text",
+                  // "minLength": 20,
+              }],
+          }, {
+              "type": "comment",
+              "name": "question24",
+              "visible": false,
+              "visibleIf": "{question22} = \"Nee\"",
+              "title": "Indien je je niet herkent in de motivatie van PostNL om aan de slag te gaan met culturele diversiteit in je werkomgeving, schrijf dan op waarom niet.",
+              "isRequired": true,
+              "validators": [{
+                  "type": "text",
+                  // "minLength": 20,
+              }],
+          }],
+        }],
+      }, {
         "name": "page9",
         "elements": [{
-            type: "panel",
-            name: "panel9",
+            "type": "panel",
+            "name": "panel9",
             "elements": [{
-                type: "html",
-                name: "html8",
-                visibleIf: "categorizeAnswers('question9') == 4",
-                html: "<p>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' style='width:500px;'><p>Scoor je hoog op Leren?</p><p>Dan zie je culturele diversiteit als een bron van leren en innovatie voor de organisatie. Medewerkers met diverse culturele achtergronden brengen een verscheidenheid aan perspectieven met zich mee. In teamverband stimuleert dit creativiteit, vernieuwing en een betere besluitvorming. Verschillende invalshoeken in jouw team zetten je aan het denken. Dit is leerzaam en leidt op de lange termijn ook tot betere resultaten.</p><p>Het leerperspectief komt uit onderzoek naar voren als het perspectief dat samengaat met de meest positieve uitkomsten van culturele diversiteit. Leren en innovatie is belangrijk voor het voortbestaan van een organisatie. Het is mooi dat je inziet dat culturele diversiteit hierbij kan helpen.</p><p>Aandachtspunten bij Leren:</p><p>- Je waardeert de aanwezigheid van verschillende perspectieven in de werkomgeving. Meerdere perspectieven kunnen echter ook leiden tot conflict. Wanneer dit conflict negatief geladen is, kan het ervoor zorgen dat er geen positieve uitkomsten van culturele diversiteit meer behaald worden.</p><p>- Je ziet culturele diversiteit als een verrijking van de organisatie. Door een sterke focus op de meerwaarde van culturele verschillen kan het echter zijn dat de culturele meerderheid zich buitengesloten voelt en twijfelt over zijn/haar eigen positie.</p>"
+              "type": "radiogroup",
+              "name": "question25",
+              "title": "Nu je meer te weten bent gekomen over de motivatie van jouw organisatie om in te zetten op culturele diversiteit, is je motivatie om met culturele diversiteit aan de slag te gaan veranderd?",
+              "choices": ["Ja", "Nee"],
+            }, {
+                "type": "comment",
+                "name": "question26",
+                "visible": false,
+                "visibleIf": "{question25} = \"Ja\"",
+                "title": "Beschrijf nogmaals jouw motivatie om aan de slag te gaan met culturele diversiteit in je werkomgeving.",
+                "isRequired": true,
+                "validators": [{
+                    "type": "text",
+                    // "minLength": 20,
+                }],
             }],
-            "title": "Onderdeel 2: Score en uitleg (jouw perspectief)"
-        }],
-    }],
+          }],
+      }, {
+        "name": "page10",
+        "elements": [{
+          "type": "panel",
+          "name": "panel10",
+          "elements": [{
+            "type": "html",
+            "name": "html10",
+            "html": "<p>Case 1: Het gaat om kwaliteit!<br>Om te polsen hoeveel draagvlak er is voor diversiteitsbeleid spreek je met verschillende collega’s op de afdeling. Van verschillende kanten krijg je de opmerking: <q>Het is belangrijk dat we primair inzetten op kwaliteit, niet perse op diversiteit. We zijn niet tegen diversiteit, maar het mag niet ten koste gaan van diversiteit?</q> Welke reactie zou hier het meest effectief zijn om draagvlak te creëren voor je eigen beleid?</p>",
+          }, {
+            "type": "sortablelist",
+            "name": "case1",
+            "isRequired": true,
+            "choices": ["family", "work", "pets", "travels", "games"]
+          }]
+        }]
+      }, {
+        "name": "page11",
+        "elements": [{
+          "type": "panel",
+          "name": "panel11",
+          "elements": [{
+            "type": "html",
+            "name": "html11",
+            "html": "<p>Case 2: <q>We hebben de plicht minderheden vooruit te helpen</q><br>Je bent al enige tijd bezig om interventies te implementeren waarbij je actief in wilt zetten op de diversiteit in een van de teams om zo een aantal producten uit de dienstverlening te verbeteren. Een van de leidinggevenden van deze teams heeft kritiek op de wijze waarop je diversiteit aanvliegt. Zij vindt zij het onzin om te proberen de waarde van diversiteit te verzilveren. Zij voelt de maatschappelijke verantwoordelijkheid om culturele minderheden die werkzaam zijn op de afdeling op te nemen en actief te ondersteunen. Het is duidelijk dat zij minder kansen hebben en het diversiteitsbeleid zou juist daarop gericht moeten zijn.</p>",
+          }, {
+            "type": "sortablelist",
+            "name": "case2",
+            "isRequired": true,
+            "choices": ["kwaliteit", "toegang", "leren", "eerlijkheid"]
+          }]
+        }]
+      }, {
+        "name": "page12",
+        "elements": [{
+          "type": "panel",
+          "name": "panel12",
+          "elements": [{
+            "type": "html",
+            "name": "html12",
+            "html": "<p>Case 3: <q>De Turkse medewerkers naar de Turkse klant</q><br>De teams die onder jouw verantwoordelijkheid vallen moeten regelmatig klussen doen voor klanten met een Turkse of Marokkaanse achtergrond. De leidinggevenden van de teams hebben de ervaring dat het het beste werkt om Turks-Nederlandse collega’s naar deze klanten te sturen. Een gezamenlijke culturele achtergrond van de klant en de medewerker zorgt immers al snel voor meer vertrouwen en een gemakkelijkere communicatie. Zij geven wel aan dat sommige Turks-Nederlandse collega’s moeite hebben met het feit dat ze steeds naar Turkse klanten gestuurd worden. Wat zou jouw opdracht aan de leidinggevenden zijn in deze situatie?</p>",
+          }, {
+            "type": "sortablelist",
+            "name": "case3",
+            "isRequired": true,
+            "choices": ["leren", "toegang", "kwaliteit", "eerlijkheid"]
+          }]
+        }]
+      }, {
+        "name": "page13",
+        "elements": [{
+          "type": "panel",
+          "name": "panel13",
+          "elements": [{
+            "type": "html",
+            "name": "html13",
+            "html": "<p>Case 4: De leergoeroes<br>Binnen de dienst HR zijn er een aantal medewerkers die bepleiten dat diversiteit gaat helpen om als organisatie innovatiever te worden. Zij zijn geïnspireerd geraakt door werk van een Amerikaanse hoogleraar die onderzoek gedaan heeft waaruit dit blijkt. Op de werkvloer slaat dit idee nog niet echt aan. Medewerkers ervaren niet echt dat diverse teams innovatiever zijn. Sterker nog, in de diverse teams treden regelmatig conflicten op door het verschil in visie. Leidinggevenden weten niet goed hoe ze het idee van <q>diversiteit = innovatie</q> handen en voeten zouden moeten geven. Het antwoord van HR is vooral om de hoogleraar te citeren en zijn publicaties rond te sturen. Daar schiet je nog niet zoveel mee op. Wat zou je hen adviseren?</p>"
+          }, {
+            "type": "sortablelist",
+            "name": "case4",
+            "isRequired": true,
+            "choices": ["leren", "toegang", "kwaliteit", "eerlijkheid"]
+          }]
+        }]
+      }, {
+        "name": "page14",
+        "elements": [{
+          "type": "panel",
+          "name": "panel14",
+          "elements": [{
+            "type": "html",
+            "name": "actions",
+            "html": "<p><u>Model Klant/ medewerker/ kandidaat</u></p><p>Acties Klant</p>"
+          }, {
+            "type": "checkbox",
+            "name": "actions1",
+            "title": "Vink aan welke interessant",
+            "isRequired": true,
+            "choices": ["Choice 1", "Choice 2", "Choice 3"],
+          }, {
+            "type": "checkbox",
+            "name": "actions2",
+            "title": "Acties Medewerker",
+            "isRequired": true,
+            "choices": ["Choice 1", "Choice 2", "Choice 3"]
+          }, {
+            "type": "checkbox",
+            "name": "actions3",
+            "title": "Acties Kandidaat",
+            "isRequired": true,
+            "choices": ["Choice 1", "Choice 2", "Choice 3"]
+          }]
+        }]
+      }],
 
 };
 
@@ -642,46 +760,34 @@ survey
     .onComplete
     .add(function(survey) {
 
-        var totalScore = 0;
-        var cat1 = 0;
-        var cat2 = 0;
-        var cat3 = 0;
-        var cat4 = 0;
-        var data = survey.data;
-        var randomlist = [];
+        // Object.keys(data).forEach(function(qName) {
+        //     var question = survey.getQuestionByName(qName);
+        //     var qValue = data[qName];
+        //     randomlist.push(qValue)
+        //
+        //     if (question.choices) {
+        //         question.choices.forEach(function(choice) {
+        //             if (choice.value === qValue || qValue.includes(choice.value)) {
+        //                 totalScore += +choice.score;
+        //                 if (choice.score === 1) {
+        //                     cat1 += 1;
+        //                 } else if (choice.score === 2) {
+        //                     cat2 += 1;
+        //                 } else if (choice.score === 3) {
+        //                     cat3 += 1;
+        //                 } else if (choice.score === 4) {
+        //                     cat4 += 1;
+        //                 }
+        //             }
+        //         });
+        //     }
+        // });
 
-        Object.keys(data).forEach(function(qName) {
-            var question = survey.getQuestionByName(qName);
-            var qValue = data[qName];
-            randomlist.push(qValue)
-
-            if (question.choices) {
-                question.choices.forEach(function(choice) {
-                    if (choice.value === qValue || qValue.includes(choice.value)) {
-                        totalScore += +choice.score;
-                        if (choice.score === 1) {
-                            cat1 += 1;
-                        } else if (choice.score === 2) {
-                            cat2 += 1;
-                        } else if (choice.score === 3) {
-                            cat3 += 1;
-                        } else if (choice.score === 4) {
-                            cat4 += 1;
-                        }
-                    }
-                });
-            }
-        });
-
-        var dictcats = {
-            "cat1": cat1,
-            "cat2": cat2,
-            "cat3": cat3,
-            "cat4": cat4
-        };
         document
             .querySelector('#surveyResult')
             .innerHTML = "Results: " + JSON.stringify(survey.data);
+
+        var dictcats = categorizeAnswers([1])
 
         document
             .querySelector('#surveyScore')
