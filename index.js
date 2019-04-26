@@ -63,7 +63,7 @@ var surveyJSON = {
                 "name": "question1",
                 "title": "Vind je het belangrijk om met culturele diversiteit* in jouw werkomgeving aan de slag te gaan?",
                 "description": "*met culturele diversiteit bedoelen wij de verscheidenheid aan nationale en etnische achtergronden van medewerkers",
-                "isRequired": true,
+                // "isRequired": true,
                 "choices": ["Ja", "Nee"],
             }, {
                 "type": "comment",
@@ -71,7 +71,7 @@ var surveyJSON = {
                 "visible": false,
                 "visibleIf": "{question1} = \"Ja\"",
                 "title": "Waarom?",
-                "isRequired": true,
+                // "isRequired": true,
                 "validators": [{
                     "type": "text",
                     // "minLength": 20,
@@ -82,7 +82,7 @@ var surveyJSON = {
                 "visible": false,
                 "visibleIf": "{question1} = \"Nee\"",
                 "title": "Waarom niet?",
-                "isRequired": true,
+                // "isRequired": true,
                 "validators": [{
                     "type": "text",
                     // "minLength": 20,
@@ -99,7 +99,7 @@ var surveyJSON = {
                 "type": "checkbox",
                 "name": "question4",
                 "title": "In jouw organisatie hebben wij medewerkers geïnterviewd over hun ervaringen met culturele diversiteit op de werkvloer. De volgende uitspraken kwamen uit de interviews naar voren:",
-                "isRequired": true,
+                // "isRequired": true,
                 "choices": [{
                     value: "1",
                     text: "Objectieve beoordeling",
@@ -164,7 +164,7 @@ var surveyJSON = {
             }, {
                 "type": "comment",
                 "name": "question5",
-                "isRequired": true,
+                // "isRequired": true,
                 "validators": [{
                     "type": "text",
                     // "minLength": 20,
@@ -186,7 +186,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question6",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[0][0].text,
@@ -200,7 +200,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question7",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[1][0].text,
@@ -214,7 +214,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question8",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[2][0].text,
@@ -228,7 +228,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question9",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[3][0].text,
@@ -242,7 +242,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question10",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[4][0].text,
@@ -256,7 +256,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question11",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[5][0].text,
@@ -270,7 +270,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question12",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[6][0].text,
@@ -284,7 +284,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question13",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[7][0].text,
@@ -298,7 +298,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question14",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[8][0].text,
@@ -312,7 +312,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question15",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[9][0].text,
@@ -326,7 +326,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question16",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[10][0].text,
@@ -340,7 +340,7 @@ var surveyJSON = {
                 type: "radiogroup",
                 name: "question17",
                 title: "Ik steun culturele diversiteit in onze organisatie...",
-                isRequired: true,
+                // isRequired: true,
                 choices: [{
                     value: "1",
                     text: answers[11][0].text,
@@ -616,7 +616,7 @@ var surveyJSON = {
               "visible": false,
               "visibleIf": "{question22} = \"Ja\"",
               "title": "Indien je je herkent in de motivatie van PostNL om aan de slag te gaan met culturele diversiteit in je werkomgeving, schrijf dan op waarom.",
-              "isRequired": true,
+              // "isRequired": true,
               "validators": [{
                   "type": "text",
                   // "minLength": 20,
@@ -627,7 +627,7 @@ var surveyJSON = {
               "visible": false,
               "visibleIf": "{question22} = \"Nee\"",
               "title": "Indien je je niet herkent in de motivatie van PostNL om aan de slag te gaan met culturele diversiteit in je werkomgeving, schrijf dan op waarom niet.",
-              "isRequired": true,
+              // "isRequired": true,
               "validators": [{
                   "type": "text",
                   // "minLength": 20,
@@ -650,7 +650,7 @@ var surveyJSON = {
                 "visible": false,
                 "visibleIf": "{question25} = \"Ja\"",
                 "title": "Beschrijf nogmaals jouw motivatie om aan de slag te gaan met culturele diversiteit in je werkomgeving.",
-                "isRequired": true,
+                // "isRequired": true,
                 "validators": [{
                     "type": "text",
                     // "minLength": 20,
@@ -665,11 +665,11 @@ var surveyJSON = {
           "elements": [{
             "type": "html",
             "name": "html10",
-            "html": "<p>Case 1: Het gaat om kwaliteit!<br>Om te polsen hoeveel draagvlak er is voor diversiteitsbeleid spreek je met verschillende collega’s op de afdeling. Van verschillende kanten krijg je de opmerking: <q>Het is belangrijk dat we primair inzetten op kwaliteit, niet perse op diversiteit. We zijn niet tegen diversiteit, maar het mag niet ten koste gaan van diversiteit?</q> Welke reactie zou hier het meest effectief zijn om draagvlak te creëren voor je eigen beleid?</p>",
+            "html": "<p>Case 1: Het gaat om kwaliteit!<br>Om te polsen hoeveel draagvlak er is voor diversiteitsbeleid spreek je met verschillende collega’s op de afdeling. Van verschillende kanten krijg je de opmerking: <q>Het is belangrijk dat we primair inzetten op kwaliteit, niet perse op diversiteit. We zijn niet tegen diversiteit, maar het mag niet ten koste gaan van diversiteit?</q> Welke reactie zou hier het meest effectief zijn om draagvlak te creëren voor je eigen beleid?</p><img src='img/case1.png' alt='graph' style='width:400px;'>",
           }, {
             "type": "sortablelist",
             "name": "case1",
-            "isRequired": true,
+            // "isRequired": true,
             "choices": ["family", "work", "pets", "travels", "games"]
           }]
         }]
@@ -681,11 +681,11 @@ var surveyJSON = {
           "elements": [{
             "type": "html",
             "name": "html11",
-            "html": "<p>Case 2: <q>We hebben de plicht minderheden vooruit te helpen</q><br>Je bent al enige tijd bezig om interventies te implementeren waarbij je actief in wilt zetten op de diversiteit in een van de teams om zo een aantal producten uit de dienstverlening te verbeteren. Een van de leidinggevenden van deze teams heeft kritiek op de wijze waarop je diversiteit aanvliegt. Zij vindt zij het onzin om te proberen de waarde van diversiteit te verzilveren. Zij voelt de maatschappelijke verantwoordelijkheid om culturele minderheden die werkzaam zijn op de afdeling op te nemen en actief te ondersteunen. Het is duidelijk dat zij minder kansen hebben en het diversiteitsbeleid zou juist daarop gericht moeten zijn.</p>",
+            "html": "<p>Case 2: <q>We hebben de plicht minderheden vooruit te helpen</q><br>Je bent al enige tijd bezig om interventies te implementeren waarbij je actief in wilt zetten op de diversiteit in een van de teams om zo een aantal producten uit de dienstverlening te verbeteren. Een van de leidinggevenden van deze teams heeft kritiek op de wijze waarop je diversiteit aanvliegt. Zij vindt zij het onzin om te proberen de waarde van diversiteit te verzilveren. Zij voelt de maatschappelijke verantwoordelijkheid om culturele minderheden die werkzaam zijn op de afdeling op te nemen en actief te ondersteunen. Het is duidelijk dat zij minder kansen hebben en het diversiteitsbeleid zou juist daarop gericht moeten zijn.</p><img src='img/case2.png' alt='graph' style='width:400px;'>",
           }, {
             "type": "sortablelist",
             "name": "case2",
-            "isRequired": true,
+            // "isRequired": true,
             "choices": ["kwaliteit", "toegang", "leren", "eerlijkheid"]
           }]
         }]
@@ -697,11 +697,11 @@ var surveyJSON = {
           "elements": [{
             "type": "html",
             "name": "html12",
-            "html": "<p>Case 3: <q>De Turkse medewerkers naar de Turkse klant</q><br>De teams die onder jouw verantwoordelijkheid vallen moeten regelmatig klussen doen voor klanten met een Turkse of Marokkaanse achtergrond. De leidinggevenden van de teams hebben de ervaring dat het het beste werkt om Turks-Nederlandse collega’s naar deze klanten te sturen. Een gezamenlijke culturele achtergrond van de klant en de medewerker zorgt immers al snel voor meer vertrouwen en een gemakkelijkere communicatie. Zij geven wel aan dat sommige Turks-Nederlandse collega’s moeite hebben met het feit dat ze steeds naar Turkse klanten gestuurd worden. Wat zou jouw opdracht aan de leidinggevenden zijn in deze situatie?</p>",
+            "html": "<p>Case 3: <q>De Turkse medewerkers naar de Turkse klant</q><br>De teams die onder jouw verantwoordelijkheid vallen moeten regelmatig klussen doen voor klanten met een Turkse of Marokkaanse achtergrond. De leidinggevenden van de teams hebben de ervaring dat het het beste werkt om Turks-Nederlandse collega’s naar deze klanten te sturen. Een gezamenlijke culturele achtergrond van de klant en de medewerker zorgt immers al snel voor meer vertrouwen en een gemakkelijkere communicatie. Zij geven wel aan dat sommige Turks-Nederlandse collega’s moeite hebben met het feit dat ze steeds naar Turkse klanten gestuurd worden. Wat zou jouw opdracht aan de leidinggevenden zijn in deze situatie?</p><img src='img/case3.png' alt='graph' style='width:400px;'>",
           }, {
             "type": "sortablelist",
             "name": "case3",
-            "isRequired": true,
+            // "isRequired": true,
             "choices": ["leren", "toegang", "kwaliteit", "eerlijkheid"]
           }]
         }]
@@ -713,11 +713,11 @@ var surveyJSON = {
           "elements": [{
             "type": "html",
             "name": "html13",
-            "html": "<p>Case 4: De leergoeroes<br>Binnen de dienst HR zijn er een aantal medewerkers die bepleiten dat diversiteit gaat helpen om als organisatie innovatiever te worden. Zij zijn geïnspireerd geraakt door werk van een Amerikaanse hoogleraar die onderzoek gedaan heeft waaruit dit blijkt. Op de werkvloer slaat dit idee nog niet echt aan. Medewerkers ervaren niet echt dat diverse teams innovatiever zijn. Sterker nog, in de diverse teams treden regelmatig conflicten op door het verschil in visie. Leidinggevenden weten niet goed hoe ze het idee van <q>diversiteit = innovatie</q> handen en voeten zouden moeten geven. Het antwoord van HR is vooral om de hoogleraar te citeren en zijn publicaties rond te sturen. Daar schiet je nog niet zoveel mee op. Wat zou je hen adviseren?</p>"
+            "html": "<p>Case 4: De leergoeroes<br>Binnen de dienst HR zijn er een aantal medewerkers die bepleiten dat diversiteit gaat helpen om als organisatie innovatiever te worden. Zij zijn geïnspireerd geraakt door werk van een Amerikaanse hoogleraar die onderzoek gedaan heeft waaruit dit blijkt. Op de werkvloer slaat dit idee nog niet echt aan. Medewerkers ervaren niet echt dat diverse teams innovatiever zijn. Sterker nog, in de diverse teams treden regelmatig conflicten op door het verschil in visie. Leidinggevenden weten niet goed hoe ze het idee van <q>diversiteit = innovatie</q> handen en voeten zouden moeten geven. Het antwoord van HR is vooral om de hoogleraar te citeren en zijn publicaties rond te sturen. Daar schiet je nog niet zoveel mee op. Wat zou je hen adviseren?</p><img src='img/case4.png' alt='graph' style='width:400px;'>"
           }, {
             "type": "sortablelist",
             "name": "case4",
-            "isRequired": true,
+            // "isRequired": true,
             "choices": ["leren", "toegang", "kwaliteit", "eerlijkheid"]
           }]
         }]
@@ -728,25 +728,41 @@ var surveyJSON = {
           "name": "panel14",
           "elements": [{
             "type": "html",
+            "name": "html14",
+            "html": "<p><u>Model Klant/ medewerker/ kandidaat</u></p><p>Het actief benutten van verschillende perspectieven van medewerkers kan op gestructureerde wijze gebeuren, bijvoorbeeld in de context van vergaderingen, heisessies of projectgroepen.</p><p>1. Vergadering<br>Tijdens vergaderingen zijn er twee fenomenen die maken dat unieke ideeën van medewerkers onbenut blijven:<ul><li>extreme invloed van dominante groepsleden: voor leiders is het vaak bekend wie er het eerste het woord zullen nemen. Omdat we vaak zelf ook een belang hebben bij een agendapunt doen we niet altijd de moeite om alle aanwezigen uitgebreid te bevragen een reactie te geven. Het is ook tijdrovend om iedereen het woord te geven.</li><li>zelfs wanneer iedereen het woord krijgt zijn teamleden vaak geneigd standpunten en perspectieven in te brengen waarvan zij weten dat die gedeeld worden binnen het team. Dat helpt om aardig gevonden  worden in het team en voor binding tussen teamleden. De druk om geen afwijkende standpunten in te brengen is vaak nog groter in diverse teams omdat die vaak minder cohesief zijn. Conflict ligt op de vloer.</li></ul><br>Als voorzitter is het van belang te  bewaken dat de cohesie tussen de teamleden groot genoeg is. Anders is het zaak de vergadering te beginnen met iets informeels zoals een lunch en te starten met agendapunten waarvan je verwacht dat mensen het wel redelijk eens zullen zijn.<br>Vervolgens is het de kunst voor die agendapunten waarop je graag creatieve input wilt of het belangrijk is dat iedereen echt betrokken raakt om mensen actief uit te nodigen met unieke input te komen. Dat bijvoorbeeld kan door ideeen op post-its te laten schrijven en de postits vervolgens te laten delen met de groep of op flapovers te plakken. Wanneer tijd een issue is kan dat ook door alle teamleden van te voren input te vragen. Nog een andere aanpak is om die leden van de vergadering waarvan je verwacht dat ze een andere opvatting hebben te vragen of zij hun perspectief willen presenteren aan de vergadering. Als voorzitter is het zaak om geventileerde opvatting positief te ontvangen, zelfs wanneer je het er zelf mee oneens bent.</p><p>2.  Projectgroep<br>Een projectgroep is een geschikt middel om de diversiteit in een team te benutten om creatieve oplossingen te genereren of besluitvorming te optimaliseren. Deze kleinschalige samenwerkingsvorm met een kortdurend karakter maakt dat gedrag van mensen meer doelgericht is en minder gestuurd wordt door macht, commitment aan de belangen van specifieke organisatieonderdelen en competitie. Kleinschaligheid stimuleert, weten we uit onderzoek, ook empathie, door de mogelijkheid tot informele en persoonlijke interactie. De diversiteit van het team wordt idealiter zo gekozen dat mensen op verschillende dimensies van elkaar verschillen, zoals geslacht, discipline, organisatieonderdeel, leeftijd en culturele achtergrond. Daarbij is het belangrijk dat verschillen op dimensies niet met elkaar samenhangen, bijvoorbeeld dat alle culturele minderheidsleden jong en vrouw zijn, tegenover een culturele meerderheid van oudere mannen. Dat geeft sterke scheidslijnen waardoor verschillen niet benut willen omdat er te weinig interactie ontstaat over groepsgrenzen. Door in projectgroepen agile te werken kunnen de effecten van diversiteit op innovatie verder versterkt worden. Dit garandeert dat alle groepsleden niet alleen inhoudelijk, maar ook procesmatig bijdragen.</p><p>3. Heisessie<br>Belangrijke veranderingen in de organisatie, bijvoorbeeld in haar strategie zijn doorgaans het onderwerp van een ‘heisessies’. Buiten de normale werksfeer zijn medewerkers vaak minder gebonden aan rollen en is de openheid voor anderen en andere perspectieven groter. Dat wordt versterkt door de informele kanten van een dagje samen zijn buiten de dagelijkse hectiek. Net als tijdens vergaderingen is het van belang dat de sessieleider bewaakt dat de cohesie tussen de teamleden groot genoeg is. Anders is van belang te starten met een onderdeel dat de gemeenschappelijkheid benadrukt of wederzijds begrip versterkt. Een gevoel van gemeenschappelijkheid ontstaat door samen iets te doen zoals het maken van een spannende wandeling, luisteren naar een optreden of het ophalen van herinneringen om trots op te zijn. Wederzijds begrip ontstaat bijvoorbeeld door ieder groepslid te vragen iets te zeggen over vanuit welke drive of welke waarde hij of zij dit werk doet. Dit wordt versterkt door als groep deze waarden te representeren door middel van een mood board.<br>Wanneer er voldoende onderlinge verbinding is onder de deelnemers is het tijd  om mensen actief uit te nodigen met unieke input te komen. Net als tijdens vergaderingen kan dat door ideeen op post-its te laten schrijven en de postits vervolgens te laten delen met de groep of op flapovers te plakken. Voor de sessieleider is het ook hier zaak om geventileerde opvatting positief te ontvangen.</p><p>Vink aan op welke wijze jij de verschillende perspectieven van je medewerkers beter wilt gaan benutten.</p>",
+          }, {
+            "type": "checkbox",
+            "name": "perspectieven",
+            // "isRequired": true,
+            "choices": ["1. Vergadering", "2. Projectgroep", "3. Heisessie"],
+          }]
+        }]
+      }, {
+        "name": "page15",
+        "elements": [{
+          "type": "panel",
+          "name": "panel15",
+          "elements": [{
+            "type": "html",
             "name": "actions",
-            "html": "<p><u>Model Klant/ medewerker/ kandidaat</u></p><p>Acties Klant</p>"
+            "html": "<p><u>Model Klant/ medewerker/ kandidaat</u></p><p>Acties Klant</p><img src='img/actions.png' alt='graph' style='width:800px;'>"
           }, {
             "type": "checkbox",
             "name": "actions1",
             "title": "Vink aan welke interessant",
-            "isRequired": true,
+            // "isRequired": true,
             "choices": ["Choice 1", "Choice 2", "Choice 3"],
           }, {
             "type": "checkbox",
             "name": "actions2",
             "title": "Acties Medewerker",
-            "isRequired": true,
+            // "isRequired": true,
             "choices": ["Choice 1", "Choice 2", "Choice 3"]
           }, {
             "type": "checkbox",
             "name": "actions3",
             "title": "Acties Kandidaat",
-            "isRequired": true,
+            // "isRequired": true,
             "choices": ["Choice 1", "Choice 2", "Choice 3"]
           }]
         }]
@@ -796,8 +812,8 @@ survey
     });
 
 survey.onValidateQuestion.add(function(survey, options) {
-    //the checkbox question 5
-    if (options.name === "question5") {
+    //the checkbox question 4
+    if (options.name === "question4") {
         if (options.value && options.value.length < 3) {
             //Set the error
             options.error = "Please select a minimum of three values";
