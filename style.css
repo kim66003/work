@@ -53,3 +53,35 @@ blockquote p::before {
 blockquote p::after {
     content: '\201D';
 }
+
+.kwaliteit {
+  display: none;
+}
+
+.rechtvaardigheid {
+  display: none;
+}
+
+.toegang {
+  display: none;
+}
+
+.leren {
+  display: none;
+}
+
+.verbinding {
+  display: none;
+}
+
+.resources {
+  display: none;
+}
+
+.doorstroom {
+  display: none;
+}
+
+#actions {
+  cursor: pointer;
+}

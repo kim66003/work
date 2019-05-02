@@ -35,13 +35,16 @@ function shuffle(array) {
 
 // make dictionary with text and value (1-4)
 function make_dict(list) {
-    dict = []
+    var dict = [];
+    var count = 0;
     list.forEach(function(cat) {
       temp_cat = [];
       cat.forEach(function(item) {
+        count += 1;
         temp = {
           text: item,
-          value: Number(item[0])
+          value: Number(item[0]),
+          number: count,
         }
         temp_cat.push(temp)
       });
