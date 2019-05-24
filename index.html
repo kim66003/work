@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style/bootstrap.css">
     <!-- SurveyJS -->
     <!-- <script src="https://unpkg.com/jquery"></script> -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
@@ -27,7 +27,7 @@
     <link rel='shortcut icon' type='img/png' href='img/VU_Griffioen.gif'>
 
     <!-- Style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
     <title>Survey: cultural diversity at work</title>
   </head>
   <body>
@@ -51,10 +51,10 @@
             <a class="nav-link" href="index.html">Survey</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="research.html">Research</a>
+            <a class="nav-link" href="htmls/research.html">Research</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="info.html">About us</a>
+            <a class="nav-link" href="htmls/info.html">About us</a>
           </li>
         </ul>
       </div>
@@ -64,6 +64,19 @@
     <div id="surveyElement"></div>
     <div id="surveyResult"></div>
     <div id="surveyScore"></div>
+    <p id="surveyTempResults"></p>
+
+    <script>
+    window.onload = function() {
+      var tempResults = processResults(survey).join(" ")
+
+      if (localStorage.result) {
+        document
+          .getElementById("surveyTempResults")
+          .innerHTML = "Tussentijdse resultaten: " + tempResults;
+      }
+    }
+    </script>
 
     <!-- Footer -->
     <footer class="footer mt-auto py-2">
@@ -76,11 +89,10 @@
     <!-- Load javascripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="translation.js"></script>
-    <script type="text/javascript" src="randomanswers.js"></script>
-    <!-- <script type="text/javascript" src="categorizeanswers.js"></script> -->
-    <script type="text/javascript" src="helpers.js"></script>
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="code/translation.js"></script>
+    <script type="text/javascript" src="code/randomanswers.js"></script>
+    <script type="text/javascript" src="code/helpers.js"></script>
+    <script type="text/javascript" src="code/index.js"></script>
 
   </body>
 </html>
