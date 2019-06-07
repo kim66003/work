@@ -1,56 +1,56 @@
 // function to remove by value from array
 Array.prototype.remove = function() {
-    var what, a = arguments,
-        L = a.length,
-        ax;
-    while (L && this.length) {
-        what = a[--L];
-        while ((ax = this.indexOf(what)) !== -1) {
-            this.splice(ax, 1);
-        }
+  var what, a = arguments,
+    L = a.length,
+    ax;
+  while (L && this.length) {
+    what = a[--L];
+    while ((ax = this.indexOf(what)) !== -1) {
+      this.splice(ax, 1);
     }
-    return this;
+  }
+  return this;
 };
 
 // shuffle order of array
 function shuffle(array) {
-    var currentIndex = array.length,
-        temporaryValue, randomIndex;
+  var currentIndex = array.length,
+    temporaryValue, randomIndex;
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
 
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
 
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
 
-    return array;
+  return array;
 }
 
 // make dictionary with text and value (1-4)
 function make_dict(list) {
-    var dict = [];
-    var count = 0;
-    list.forEach(function(cat) {
-      temp_cat = [];
-      cat.forEach(function(item) {
-        count += 1;
-        temp = {
-          text: item,
-          value: Number(item[0]),
-          number: count,
-        }
-        temp_cat.push(temp)
-      });
-      dict.push(temp_cat)
+  var dict = [];
+  var count = 0;
+  list.forEach(function(cat) {
+    temp_cat = [];
+    cat.forEach(function(item) {
+      count += 1;
+      temp = {
+        text: item,
+        value: Number(item[0]),
+        number: count,
+      }
+      temp_cat.push(temp)
     });
-    return dict
+    dict.push(temp_cat)
+  });
+  return dict
 }
 
 function makeStatements() {
@@ -69,19 +69,44 @@ function makeStatements() {
 
 // make all possible combinations of two categories from 1-4
 function answercombinations(statements, length) {
-    var combi_list = [] // return array of category pairs
-    var index = [[[0, 1], [2, 3]], [[0, 2], [1, 3]], [[0, 3], [1, 2]], [[2, 1], [3, 0]], [[3, 1], [2, 0]], [[3, 2], [1, 0]]] // all possible combinations
-    for (i = 0; i < length; i++) {
-        var rand_stats = [] // list with 4 random statements from 4 categories
-        for (j = 0; j < statements.length; j++) {
-            rand_stats.push(statements[j][Math.floor(Math.random() * statements[j].length)]) // pick random statement from every category
-            statements[j].remove(rand_stats[j]) // remove that statement from original array
-        }
-        var combi = [rand_stats[index[i][0][0]], rand_stats[index[i][0][1]]] // make combi based on index array
-        combi_list.push(combi)
-        var combi = [rand_stats[index[i][1][0]], rand_stats[index[i][1][1]]] // make combi based on index array
-        combi_list.push(combi)
+  var combi_list = [] // return array of category pairs
+  var index = [
+    [
+      [0, 1],
+      [2, 3]
+    ],
+    [
+      [0, 2],
+      [1, 3]
+    ],
+    [
+      [0, 3],
+      [1, 2]
+    ],
+    [
+      [2, 1],
+      [3, 0]
+    ],
+    [
+      [3, 1],
+      [2, 0]
+    ],
+    [
+      [3, 2],
+      [1, 0]
+    ]
+  ] // all possible combinations
+  for (i = 0; i < length; i++) {
+    var rand_stats = [] // list with 4 random statements from 4 categories
+    for (j = 0; j < statements.length; j++) {
+      rand_stats.push(statements[j][Math.floor(Math.random() * statements[j].length)]) // pick random statement from every category
+      statements[j].remove(rand_stats[j]) // remove that statement from original array
     }
-    shuffle(combi_list) // shuffle list of combi statements
-    return combi_list // return list of combi statements
+    var combi = [rand_stats[index[i][0][0]], rand_stats[index[i][0][1]]] // make combi based on index array
+    combi_list.push(combi)
+    var combi = [rand_stats[index[i][1][0]], rand_stats[index[i][1][1]]] // make combi based on index array
+    combi_list.push(combi)
+  }
+  shuffle(combi_list) // shuffle list of combi statements
+  return combi_list // return list of combi statements
 }

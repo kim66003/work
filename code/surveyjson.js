@@ -1,52 +1,3 @@
-Survey
-  .FunctionFactory
-  .Instance
-  .register("categorizeAnswers", categorizeAnswers);
-
-Survey
-  .FunctionFactory
-  .Instance
-  .register("showText", showText);
-
-Survey
-  .FunctionFactory
-  .Instance
-  .register("showInitialText", showInitialText);
-
-Survey
-  .StylesManager
-  .applyTheme("orange")
-
-Survey
-  .surveyLocalization
-  .locales["my"] = dutchStrings;
-
-Survey
-  .JsonObject
-  .metaData
-  .addProperty("itemvalue", {
-    name: "score:number",
-    default: 0,
-  });
-
-var myCss = {
-  matrix: {
-    root: "table table-striped"
-  },
-  question: {
-    number: "sv_q_num",
-    description: "medium",
-    title: "16px",
-    text: "14px",
-    comment: "form-control",
-  },
-};
-
-var statementsLength = makeStatements()
-var statements = statementsLength[0]
-var length = statementsLength[1]
-var answers = answercombinations(statements, length); // returns random combination and order of statements
-
 var surveyJSON = {
   // "cookieName": "myuniquesurveyid",
   "title": "Culturele Diversiteit Online Tool",
@@ -194,564 +145,370 @@ var surveyJSON = {
       "type": "panel",
       "name": "panel4",
       elements: [{
-          type: "html",
-          name: "html3",
-          html: "<p>Je krijgt nu telkens twee stellingen te zien die gaan over redenen om culturele diversiteit na te streven. Kies telkens de stelling waar je het het meest mee eens bent.</p>"
+        type: "html",
+        name: "html3",
+        html: "<p>Je krijgt nu telkens twee stellingen te zien die gaan over redenen om culturele diversiteit na te streven. Kies telkens de stelling waar je het het meest mee eens bent.</p>"
+      }, {
+        type: "radiogroup",
+        name: "question6",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[0][0].number,
+          text: answers[0][0].text,
+          score: answers[0][0].value,
         }, {
-          type: "matrix",
-          name: "matrix1",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[0][0].number,
-            text: answers[0][0].text,
-            score: answers[0][0].value
-          }, {
-            value: answers[0][1].number,
-            text: answers[0][1].text,
-            score: answers[0][1].value
-          }]
+          value: answers[0][1].number,
+          text: answers[0][1].text,
+          score: answers[0][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question7",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[1][0].number,
+          text: answers[1][0].text,
+          score: answers[1][0].value,
         }, {
-          type: "radiogroup",
-          name: "radio1",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix1} notempty",
-          choices: [{
-            value: answers[0][0].number,
-            text: answers[0][0].text,
-            score: answers[0][0].value,
-          }, {
-            value: answers[0][1].number,
-            text: answers[0][1].text,
-            score: answers[0][1].value,
-          }]
+          value: answers[1][1].number,
+          text: answers[1][1].text,
+          score: answers[1][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question8",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[2][0].number,
+          text: answers[2][0].text,
+          score: answers[2][0].value,
         }, {
-          type: "matrix",
-          name: "matrix2",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio1} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[1][0].number,
-            text: answers[1][0].text,
-            score: answers[1][0].value
-          }, {
-            value: answers[1][1].number,
-            text: answers[1][1].text,
-            score: answers[1][1].value
-          }]
+          value: answers[2][1].number,
+          text: answers[2][1].text,
+          score: answers[2][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question9",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[3][0].number,
+          text: answers[3][0].text,
+          score: answers[3][0].value,
         }, {
-          type: "radiogroup",
-          name: "radio2",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix2} notempty",
-          choices: [{
-            value: answers[1][0].number,
-            text: answers[1][0].text,
-            score: answers[1][0].value,
-          }, {
-            value: answers[1][1].number,
-            text: answers[1][1].text,
-            score: answers[1][1].value,
-          }]
+          value: answers[3][1].number,
+          text: answers[3][1].text,
+          score: answers[3][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question10",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[4][0].number,
+          text: answers[4][0].text,
+          score: answers[4][0].value,
         }, {
-          type: "matrix",
-          name: "matrix3",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio2} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[2][0].number,
-            text: answers[2][0].text,
-            score: answers[2][0].value
-          }, {
-            value: answers[2][1].number,
-            text: answers[2][1].text,
-            score: answers[2][1].value
-          }]
+          value: answers[4][1].number,
+          text: answers[4][1].text,
+          score: answers[4][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question11",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[5][0].number,
+          text: answers[5][0].text,
+          score: answers[5][0].value,
         }, {
-          type: "radiogroup",
-          name: "radio3",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix3} notempty",
-          choices: [{
-            value: answers[2][0].number,
-            text: answers[2][0].text,
-            score: answers[2][0].value,
-          }, {
-            value: answers[2][1].number,
-            text: answers[2][1].text,
-            score: answers[2][1].value,
-          }]
+          value: answers[5][1].number,
+          text: answers[5][1].text,
+          score: answers[5][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question12",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[6][0].number,
+          text: answers[6][0].text,
+          score: answers[6][0].value,
         }, {
-          type: "matrix",
-          name: "matrix4",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio3} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[3][0].number,
-            text: answers[3][0].text,
-            score: answers[3][0].value
-          }, {
-            value: answers[3][1].number,
-            text: answers[3][1].text,
-            score: answers[3][1].value
-          }]
+          value: answers[6][1].number,
+          text: answers[6][1].text,
+          score: answers[6][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question13",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[7][0].number,
+          text: answers[7][0].text,
+          score: answers[7][0].value,
         }, {
-          type: "radiogroup",
-          name: "radio4",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix4} notempty",
-          choices: [{
-            value: answers[3][0].number,
-            text: answers[3][0].text,
-            score: answers[3][0].value,
-          }, {
-            value: answers[3][1].number,
-            text: answers[3][1].text,
-            score: answers[3][1].value,
-          }]
+          value: answers[7][1].number,
+          text: answers[7][1].text,
+          score: answers[7][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question14",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[8][0].number,
+          text: answers[8][0].text,
+          score: answers[8][0].value,
         }, {
-          type: "matrix",
-          name: "matrix5",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio4} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[4][0].number,
-            text: answers[4][0].text,
-            score: answers[4][0].value,
-          }, {
-            value: answers[4][1].number,
-            text: answers[4][1].text,
-            score: answers[4][1].value,
-          }]
+          value: answers[8][1].number,
+          text: answers[8][1].text,
+          score: answers[8][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question15",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[9][0].number,
+          text: answers[9][0].text,
+          score: answers[9][0].value,
         }, {
-          type: "radiogroup",
-          name: "radio5",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix5} notempty",
-          choices: [{
-            value: answers[4][0].number,
-            text: answers[4][0].text,
-            score: answers[4][0].value,
-          }, {
-            value: answers[4][1].number,
-            text: answers[4][1].text,
-            score: answers[4][1].value,
-          }]
+          value: answers[9][1].number,
+          text: answers[9][1].text,
+          score: answers[9][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question16",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[10][0].number,
+          text: answers[10][0].text,
+          score: answers[10][0].value,
         }, {
-          type: "matrix",
-          name: "matrix6",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio5} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[5][0].number,
-            text: answers[5][0].text,
-            score: answers[5][0].value,
-          }, {
-            value: answers[5][1].number,
-            text: answers[5][1].text,
-            score: answers[5][1].value,
-          }]
+          value: answers[10][1].number,
+          text: answers[10][1].text,
+          score: answers[10][1].value,
+        }]
+      }, {
+        type: "radiogroup",
+        name: "question17",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        // isRequired: true,
+        choices: [{
+          value: answers[11][0].number,
+          text: answers[11][0].text,
+          score: answers[11][0].value,
         }, {
-          type: "radiogroup",
-          name: "radio6",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix6} notempty",
-          choices: [{
-            value: answers[5][0].number,
-            text: answers[5][0].text,
-            score: answers[5][0].value,
-          }, {
-            value: answers[5][1].number,
-            text: answers[5][1].text,
-            score: answers[5][1].value,
-          }]
-        }, {
-          type: "matrix",
-          name: "matrix7",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio6} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[6][0].number,
-            text: answers[6][0].text,
-            score: answers[6][0].value,
-          }, {
-            value: answers[6][1].number,
-            text: answers[6][1].text,
-            score: answers[6][1].value,
-          }]
-        },
-        {
-          type: "radiogroup",
-          name: "radio7",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix7} notempty",
-          choices: [{
-            value: answers[6][0].number,
-            text: answers[6][0].text,
-            score: answers[6][0].value,
-          }, {
-            value: answers[6][1].number,
-            text: answers[6][1].text,
-            score: answers[6][1].value,
-          }]
-        }, {
-          type: "matrix",
-          name: "matrix8",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio7} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[7][0].number,
-            text: answers[7][0].text,
-            score: answers[7][0].value,
-          }, {
-            value: answers[7][1].number,
-            text: answers[7][1].text,
-            score: answers[7][1].value,
-          }]
-        }, {
-          type: "radiogroup",
-          name: "radio8",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix8} notempty",
-          choices: [{
-            value: answers[7][0].number,
-            text: answers[7][0].text,
-            score: answers[7][0].value,
-          }, {
-            value: answers[7][1].number,
-            text: answers[7][1].text,
-            score: answers[7][1].value,
-          }]
-        }, {
-          type: "matrix",
-          name: "matrix9",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio8} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[8][0].number,
-            text: answers[8][0].text,
-            score: answers[8][0].value,
-          }, {
-            value: answers[8][1].number,
-            text: answers[8][1].text,
-            score: answers[8][1].value,
-          }]
-        }, {
-          type: "radiogroup",
-          name: "radio9",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix9} notempty",
-          choices: [{
-            value: answers[8][0].number,
-            text: answers[8][0].text,
-            score: answers[8][0].value,
-          }, {
-            value: answers[8][1].number,
-            text: answers[8][1].text,
-            score: answers[8][1].value,
-          }]
-        }, {
-          type: "matrix",
-          name: "matrix10",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio9} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[9][0].number,
-            text: answers[9][0].text,
-            score: answers[9][0].value,
-          }, {
-            value: answers[9][1].number,
-            text: answers[9][1].text,
-            score: answers[9][1].value,
-          }]
-        }, {
-          type: "radiogroup",
-          name: "radio10",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix10} notempty",
-          choices: [{
-            value: answers[9][0].number,
-            text: answers[9][0].text,
-            score: answers[9][0].value,
-          }, {
-            value: answers[9][1].number,
-            text: answers[9][1].text,
-            score: answers[9][1].value,
-          }]
-        }, {
-          type: "matrix",
-          name: "matrix11",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio10} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[10][0].number,
-            text: answers[10][0].text,
-            score: answers[10][0].value,
-          }, {
-            value: answers[10][1].number,
-            text: answers[10][1].text,
-            score: answers[10][1].value,
-          }]
-        }, {
-          type: "radiogroup",
-          name: "radio11",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix11} notempty",
-          choices: [{
-            value: answers[10][0].number,
-            text: answers[10][0].text,
-            score: answers[10][0].value,
-          }, {
-            value: answers[10][1].number,
-            text: answers[10][1].text,
-            score: answers[10][1].value,
-          }]
-        }, {
-          type: "matrix",
-          name: "matrix12",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          visibleIf: "{radio11} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[11][0].number,
-            text: answers[11][0].text,
-            score: answers[11][0].value,
-          }, {
-            value: answers[11][1].number,
-            text: answers[11][1].text,
-            score: answers[11][1].value,
-          }]
-        }, {
-          type: "radiogroup",
-          name: "radio12",
-          title: "Ik steun culturele diversiteit in onze organisatie...",
-          // isRequired: true,
-          "visibleIf": "{matrix12} notempty",
-          choices: [{
-            value: answers[11][0].number,
-            text: answers[11][0].text,
-            score: answers[11][0].value,
-          }, {
-            value: answers[11][1].number,
-            text: answers[11][1].text,
-            score: answers[11][1].value,
-          }]
-        }
-      ],
+          value: answers[11][1].number,
+          text: answers[11][1].text,
+          score: answers[11][1].value,
+        }]
+      }],
       "title": "Onderdeel 1: Vragenlijst"
+    }]
+  }, {
+    "name": "page5",
+    "elements": [{
+      type: "panel",
+      name: "panel5",
+      "elements": [{
+        type: "html",
+        name: "html4",
+        html: "<p>Je krijgt nu telkens twee stellingen te zien die gaan over redenen om culturele diversiteit na te streven. Kies telkens de stelling waar je het het meest mee eens bent.</p>"
+      }, {
+        type: "matrix",
+        name: "question18",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        columns: [{
+          value: 1,
+          text: "Helemaal oneens"
+        }, {
+          value: 2,
+          text: "Oneens"
+        }, {
+          value: 3,
+          text: "Neutraal"
+        }, {
+          value: 4,
+          text: "Eens"
+        }, {
+          value: 5,
+          text: "Helemaal eens"
+        }],
+        rows: [{
+          value: answers[0][0].number,
+          text: answers[0][0].text,
+          score: answers[0][0].value
+        }, {
+          value: answers[0][1].number,
+          text: answers[0][1].text,
+          score: answers[0][1].value
+        }, {
+          value: answers[1][0].number,
+          text: answers[1][0].text,
+          score: answers[1][0].value
+        }, {
+          value: answers[1][1].number,
+          text: answers[1][1].text,
+          score: answers[1][1].value
+        }, {
+          value: answers[2][0].number,
+          text: answers[2][0].text,
+          score: answers[2][0].value
+        }, {
+          value: answers[2][1].number,
+          text: answers[2][1].text,
+          score: answers[2][1].value
+        }]
+      }, {
+        type: "matrix",
+        name: "question19",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        columns: [{
+          value: 1,
+          text: "Helemaal oneens"
+        }, {
+          value: 2,
+          text: "Oneens"
+        }, {
+          value: 3,
+          text: "Neutraal"
+        }, {
+          value: 4,
+          text: "Eens"
+        }, {
+          value: 5,
+          text: "Helemaal eens"
+        }],
+        rows: [{
+          value: answers[3][0].number,
+          text: answers[3][0].text,
+          score: answers[3][0].value
+        }, {
+          value: answers[3][1].number,
+          text: answers[3][1].text,
+          score: answers[3][1].value
+        }, {
+          value: answers[4][0].number,
+          text: answers[4][0].text,
+          score: answers[4][0].value
+        }, {
+          value: answers[4][1].number,
+          text: answers[4][1].text,
+          score: answers[4][1].value
+        }, {
+          value: answers[5][0].number,
+          text: answers[5][0].text,
+          score: answers[5][0].value
+        }, {
+          value: answers[5][1].number,
+          text: answers[5][1].text,
+          score: answers[5][1].text
+        }]
+      }, {
+        type: "matrix",
+        name: "question20",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        columns: [{
+          value: 1,
+          text: "Helemaal oneens"
+        }, {
+          value: 2,
+          text: "Oneens"
+        }, {
+          value: 3,
+          text: "Neutraal"
+        }, {
+          value: 4,
+          text: "Eens"
+        }, {
+          value: 5,
+          text: "Helemaal eens"
+        }],
+        rows: [{
+          value: answers[6][0].number,
+          text: answers[6][0].text,
+          score: answers[6][0].value
+        }, {
+          value: answers[6][1].number,
+          text: answers[6][1].text,
+          score: answers[6][1].value
+        }, {
+          value: answers[7][0].number,
+          text: answers[7][0].text,
+          score: answers[7][0].value
+        }, {
+          value: answers[7][1].number,
+          text: answers[7][1].text,
+          score: answers[7][1].value
+        }, {
+          value: answers[8][0].number,
+          text: answers[8][0].text,
+          score: answers[8][0].value
+        }, {
+          value: answers[8][1].number,
+          text: answers[8][1].text,
+          score: answers[8][1].value
+        }]
+      }, {
+        type: "matrix",
+        name: "question21",
+        title: "Ik steun culturele diversiteit in onze organisatie...",
+        columns: [{
+          value: 1,
+          text: "Helemaal oneens"
+        }, {
+          value: 2,
+          text: "Oneens"
+        }, {
+          value: 3,
+          text: "Neutraal"
+        }, {
+          value: 4,
+          text: "Eens"
+        }, {
+          value: 5,
+          text: "Helemaal eens"
+        }],
+        rows: [{
+          value: answers[9][0].number,
+          text: answers[9][0].text,
+          score: answers[9][0].value
+        }, {
+          value: answers[9][1].number,
+          text: answers[9][1].text,
+          score: answers[9][1].value
+        }, {
+          value: answers[10][0].number,
+          text: answers[10][0].text,
+          score: answers[10][0].value
+        }, {
+          value: answers[10][1].number,
+          text: answers[10][1].text,
+          score: answers[10][1].value
+        }, {
+          value: answers[11][0].number,
+          text: answers[11][0].text,
+          score: answers[11][0].value
+        }, {
+          value: answers[11][1].number,
+          text: answers[11][1].text,
+          score: answers[11][1].value
+        }]
+      }]
     }]
   }, {
     "name": "page6",
@@ -761,6 +518,7 @@ var surveyJSON = {
       "elements": [{
         type: "html",
         name: "html5",
+        // visibleIf: "categorizeAnswers(0) == 1",
         html: "<script>var perspectives = ['kwaliteit', 'rechtvaardigheid', 'toegang', 'leren']; showInitialText(perspectives);</script><p class='kwaliteit'>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p class='kwaliteit'>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' class='kwaliteit' style='width:500px;'><p class='kwaliteit'>Scoor je hoog op Kwaliteit?</p><p class='kwaliteit'> Dan sta je open voor culturele diversiteit, maar vind je het vooral belangrijk dat de organisatie streeft naar kwaliteit. Iedereen is welkom in de organisatie, als ze maar de juiste capaciteiten meebrengen. Kwaliteit staat voorop. Daarnaast is het mooi meegenomen dat iedereen in de organisatie gelijk behandeld wordt en dat mensen niet in hokjes geplaatst worden op basis van hun culturele achtergrond.</p><p class='kwaliteit'>Wat is het effect van dit vertrekpunt? Vaak zie je bij een focus op kwaliteit dat er op de werkvloer uiteindelijk weinig van culturele diversiteit terecht komt.</p><p class='kwaliteit'>Een voorbeeld is de huidige samenstelling van ons kabinet. Mark Rutte is iemand met het kwaliteitsperspectief. Zijn reactie op het geringe aantal vrouwen in het kabinet:</p><blockquote><p class='kwaliteit'>Ik had graag meer willen hebben, maar uiteindelijk geldt: we gaan voor de beste mensen. Het is wat het is.</p></blockquote><img src='img/rutte.png' alt='graph' class='kwaliteit' style='width:300px;'><p class='kwaliteit'>Ben jij ook van mening dat een gebrek aan culturele diversiteit wordt veroorzaakt doordat er niet voldoende gekwalificeerde kandidaten met een migratieachtergrond zijn? Het SCP stelt dat dit niet helemaal juist is. Onder culturele minderheden is er sprake van een stijgend opleidingsniveau, verbeterde onderwijsprestaties en een betere beheersing van de Nederlandse taal. Dit wordt echter niet vertaalt naar hun positie op de arbeidsmarkt. Wat is hier de reden voor?</p><p class='kwaliteit'>Wat zijn de uitdagingen van een focus op Kwaliteit?</p><p class='kwaliteit'>1: Het kwaliteitsperspectief legt een sterke nadruk op objectieve selectie- en beoordelingscriteria. Echter, door er naar te streven iedereen op dezelfde manier te beoordelen, is er weinig ruimte voor de inbreng van unieke eigenschappen van medewerkers. Door een focus op kwaliteit zet je impliciet in op overeenkomsten tussen medewerkers in je team. Deze nadruk op homogeniteit kan ervoor zorgen dat culturele minderheden de druk voelen om zich aan te passen aan de dominante normen en waarden in jouw werkomgeving.</p><p class='kwaliteit'>2: Uit onderzoek blijkt dat het ‘geen onderscheid maken’ ongelijkheid in een organisatie juist kan vergroten. Door geen aandacht te schenken aan het bestaan van culturele verschillen, worden vooroordelen vaak juist versterkt in plaats van weggenomen.</p><p class='kwaliteit'>Wat is de oplossing? Juist door onderscheid te maken en verschillen te (h)erkennen, waarderen en benutten, kan de kwaliteit van de organisatie worden verhoogd en kunnen vooroordelen worden tegengegaan. Meer lezen hierover? Perspectieven   <a href='htmls/rechtvaardigheid.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Rechtvaardigheid</a>, <a href='htmls/toegang.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Toegang</a>, <a href='htmls/leren.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Leren</a>.<p class='rechtvaardigheid'>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p class='rechtvaardigheid'>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' class='rechtvaardigheid' style='width:500px;'><p class='rechtvaardigheid'>Scoor je hoog op Rechtvaardigheid?</p><p class='rechtvaardigheid'>Dan vind je dat de organisatie een maatschappelijke verantwoordelijkheid heeft om zich in te zetten voor culturele diversiteit. Het is belangrijk om discriminatie tegen te gaan en achterstandsgroepen in de samenleving vooruit te helpen. Je vindt dat ieder mens gelijke kansen moet krijgen en dat de organisatie een afspiegeling zou moeten zijn van de samenleving.</p><p class='rechtvaardigheid'>Wat is het effect van dit perspectief? Rechtvaardigheid is een nobel uitgangspunt. Vaak zie je bij een focus op rechtvaardigheid dat er uiteindelijk weinig binnen de organisatie verandert. Denk bijvoorbeeld aan de beste bedoelingen van missionarissen om mensen in ontwikkelingslanden ‘vooruit te helpen’. Onderzoek naar het effect van deze werkwijze laat echter zien dat dit geen efficiënte manier is om met mensen samen te werken.</p><p class='rechtvaardigheid'>Voor een omstreden voorbeeld van het ‘vooruit helpen’ van culturele minderheden, zie de documentaire ‘Curaçao’ (2010). In deze documentaire is te zien hoe een manager van de lokale Albert Heijn-vestiging zijn zwarte personeel en het witte management op een cursus stuurt met als motto <q>Waarom wil een Antilliaan geen leiding geven?</q> In deze cursus manager probeert de manager de lokale werknemers de Nederlandse supermarktcultuur over te brengen door hun uit te leggen hoe zij handen dienen te schudden en mensen dienen aan te kijken.</p><img src='img/hands.png' alt='img' class='rechtvaardigheid' style='width:400px;'><p class='rechtvaardigheid'>Wat zijn de uitdagingen wanneer jouw vertrekpunt gericht is op Rechtvaardigheid?</p><p class='rechtvaardigheid'>1: Bij een focus op rechtvaardigheid in de organisatie wordt er vaak alsnog gedacht in termen van achterstand. Het voorbeeld van de Albert Heijn in Curaçao laat zien dat van culturele minderheden wordt verwacht dat zij zich aanpassen aan de dominante Westerse norm. Dit idee gaat voorbij aan de potentiële waarde die culturele verschillen in een werkomgeving kunnen bijdragen. Als organisaties ‘diversiteitbeleid’ blijven zien als Maatschappelijk Verantwoord Ondernemen en het slechts gebruiken als PR instrument, wordt de meerwaarde van culturele verschillen in de werkomgeving niet benut. </p><p class='rechtvaardigheid'>2: Het Rechtvaardigheid perspectief kan snel leiden tot weerstand in organisaties. Positieve discriminatie betekent dat achtergestelde groepen in de organisatie extra aandacht krijgen met het  doel om feitelijk bestaande ongelijkheden op te heffen. Het idee van positieve discriminatie wordt bij zowel de culturele meerderheid als culturele minderheden meestal niet positief ontvangen. De culturele meerderheid kan het idee hebben achtergesteld te worden ten opzichte van de culturele minderheid doordat zij zelf geen kansen krijgen binnen de organisatie. Anderzijds kunnen culturele minderheden het gevoel krijgen dat zij niet op basis van hun capaciteiten zijn geselecteerd maar dat zij enkel op basis van hun culturele achtergrond kansen in de organisatie krijgen. </p><p class='rechtvaardigheid'>Zou je de culturele verschillen in jouw werkomgeving beter willen waarderen en benutten? Lees dan meer over het Kwaliteit, Toegang en Leren perspectief. Perspectieven: <a href='htmls/kwaliteit.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Kwaliteit</a>, <a href='htmls/toegang.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Toegang</a>, <a href='htmls/leren.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Leren</a>. <p class='toegang'>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p class='toegang'>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' class='toegang' style='width:500px;'><p class='toegang'>Scoor je hoog op Toegang?</p><p class='toegang'>Dan zie je culturele diversiteit als een commerciële asset voor de organisatie. Het is noodzakelijk om verbinding te houden met een steeds diverser wordende samenleving en een groeiende visvijver van talent. Je bent ervan overtuigd dat culturele diversiteit zorgt voor een verscheidenheid aan netwerken en kennis in de organisatie. Daarbij helpt het ook bij klantenbinding: een gezamenlijke culturele achtergrond zorgt al snel voor meer vertrouwen en een gemakkelijkere communicatie.</p><p class='toegang'>Wat is het effect van dit perspectief? Voor een organisatie is het essentieel om de mogelijkheden voor toegang tot markten, personeel en producten te verkennen en uit te breiden. Culturele diversiteit kan worden ingezet als een manier om het marktaandeel te vergroten en heeft een positieve invloed op de geloofwaardigheid van een organisatie. Het is mooi dat jij deze meerwaarde ziet en dat wilt benutten. Vaak zie je echter bij een focus op toegang dat diversiteit toeneemt in de lagere segmenten, maar dat de culturele diversiteit in de hogere segmenten van de organisatie achterblijft. Dit kan leiden tot segregatie in de organisatie.</p><p class='toegang'>In cultureel diverse wijken nemen organisaties actief vrouwen aan met een hoofddoek zodat zij de klanten met een islamitische achtergrond beter kunnen bedienen. De vraag is echter: Is diversiteit alleen nuttig op posities die direct in contact staan met de samenleving?</p><img src='img/supermarkt.png' alt='graph' class='toegang' style='width:300px;'><p class='toegang'>Wat zijn de uitdagingen van een focus op Toegang?</p><p class='toegang'>1. Door een focus op toegang tot externe markten is de inzet van culturele diversiteit slechts beperkt. Hierdoor vindt er intern in de organisatie vaak weinig uitwisseling plaats tussen medewerkers met verschillende culturele achtergronden. Dit kan leiden tot een scheiding tussen verschillende culturele groepen. Ook zorgt dit ervoor dat de meerwaarde van culturele verschillen in jouw werkomgeving niet worden benut omdat er voor medewerkers geen ruimte is voor afwijkende creatieve ideeën en om van elkaars perspectieven te leren.</p><p class='toegang'>2. Een selectieve focus op de commerciële voordelen van culturele diversiteit kan leiden tot weerstand: Medewerkers uit minderheidsgroepen kunnen het gevoel krijgen dat zij enkel worden aangenomen op basis van hun culturele achtergrond. Daarnaast is hun stem vaak niet vertegenwoordigd in de rest van de organisatie. Zo is er weinig culturele diversiteit in de hogere segmenten in de organisatie en de onderdelen waar besluitvorming plaatsvindt. Verder kunnen medewerkers uit de meerderheidsgroep het gevoel krijgen buitengesloten te worden. Ook kunnen zij onzeker worden over hun kwalificaties, wanneer er specifiek wordt ingezet op het werven van culturele minderheden voor bepaalde posities.</p><p class='toegang'>Om toegangsdoelen te bereiken is het belangrijk om meer te leren over het effectief inzetten van culturele verschillen in jouw werkomgeving. Je lees hier meer over bij het perspectief Leren. Je zou dit perspectief als middel kunnen gebruiken om de commerciële voordelen van culturele diversiteit in jouw werkomgeving optimaal te benutten. Klik hier om meer te lezen over de andere perspectieven: <a href='htmls/kwaliteit.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Kwaliteit</a>, <a href='htmls/rechtvaardigheid.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Rechtvaardigheid</a>, <a href='htmls/leren.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Leren</a>. <p class='leren'>Er zijn vier verschillende uitgangspunten om aan de slag te gaan met culturele diversiteit in jouw werkomgeving.</p><p class='leren'>Jouw profiel:</p><img src='img/graph.PNG' alt='graph' class='leren' style='width:500px;'><p class='leren'>Scoor je hoog op Leren?</p><p class='leren'>Dan zie je culturele diversiteit als een bron van leren en innovatie voor de organisatie. Medewerkers met diverse culturele achtergronden brengen een verscheidenheid aan perspectieven met zich mee. In teamverband stimuleert dit creativiteit, vernieuwing en een betere besluitvorming. Verschillende invalshoeken in jouw team zetten je aan het denken. Dit is leerzaam en leidt op de lange termijn ook tot betere resultaten.</p><p class='leren'>Wat is het effect van dit perspectief? Leren van elkaars perspectief is belangrijk voor het voortbestaan van een organisatie. Het is mooi dat je meerwaarde ziet in het belang van culturele verschillen en deze wilt benutten. Culturele diversiteit kan worden ingezet als een manier om leren te stimuleren, creativiteit en innovatie te vergroten, en de kwaliteit van besluitvorming te verbeteren. Onderzoek wijst uit dat het leerperspectief samengaat met de meest positieve uitkomsten van culturele diversiteit voor de organisatie en haar medewerkers. Vaak zie je bij een focus op leren dat de organisatie in alle lagen cultureel divers en inclusief is en trots is op haar diversiteit.</p><p class='leren'>Benieuwd hoe Apple dit aanpakt? In dit filmpje laat Apple zien hoe ze de diverse achtergronden van medewerkers inzetten om o.a. innovatieve producten te ontwikkelen.</p><iframe class='leren' width='560' height='315' src='https://www.youtube.com/embed/cvb49-Csq1o' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe><p class='leren'>Wat zijn de uitdagingen van een focus op Leren?</p><p class='leren'> 1. Het vertrekpunt gericht op het Leren van culture verschillen en perspectieven kan ten koste gaan van snel handelen en (korte-termijn) productiviteit. Hoe meer mensen zich ergens mee bemoeien, hoe beter het uiteindelijke resultaat zal zijn, maar des te langer het proces.</p><p class='leren'>2. Een streven naar ‘leren van elkaars verschillen’ kan te abstract zijn voor medewerkers om concreet mee aan de slag te gaan in de werkomgeving. Koppel daarom dit uitgangspunt aan concrete doelen zoals bijvoorbeeld het verbeteren van de toegang tot klanten, personeel of producten. </p><p class='leren'> Nieuwsgierig naar de andere perspectieven?   <a href='htmls/kwaliteit.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Kwaliteit</a>, <a href='htmls/rechtvaardigheid.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Rechtvaardigheid</a>, <a href='htmls/toegang.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Toegang</a>.</p><p>  <a href='index.html' onclick='window.open(this.href,&quot;targetWindow&quot;,&quot;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=500&quot;); return false;'>Tussentijdse resultaten</a></p>",
       }],
       "title": "Onderdeel 2: Score en uitleg (jouw perspectief)"
@@ -927,117 +685,6 @@ var surveyJSON = {
         }],
       }]
     }]
-  }, {
-    "name": "page16",
-    "elements": [{
-      "type": "panel",
-      "name": "panel16",
-      "elements": [{
-        "type": "radiogroup",
-        "name": "test1",
-        "title": "Welke auto?",
-        // isRequired: true,
-        "choices": ["Volvo", "Mercedes", "Audi", "Tesla", "Volkswagen", "Range Rover"],
-      }, {
-        "type": "matrix",
-        "name": "test2",
-        "title": "Geef score van 1-5 per auto",
-        "visibleIf": "{test1} notempty",
-        "columns": [{
-          value: 1,
-          text: "Helemaal oneens"
-        }, {
-          value: 2,
-          text: "Oneens"
-        }, {
-          value: 3,
-          text: "Neutraal"
-        }, {
-          value: 4,
-          text: "Eens"
-        }, {
-          value: 5,
-          text: "Helemaal eens"
-        }],
-        rows: ["Volvo", "Mercedes", "Audi", "Tesla", "Volkswagen", "Range Rover"],
-      }],
-    }],
   }],
+
 };
-
-window.survey = new Survey.Model(surveyJSON);
-
-survey
-  .onComplete
-  .add(function(survey) {
-
-    document
-      .querySelector('#surveyResult')
-      .innerHTML = "Results: " + JSON.stringify(survey.data);
-
-    var dictcats = categorizeAnswers(1)
-
-    document
-      .querySelector('#surveyScore')
-      .innerHTML = "Category scores: " + JSON.stringify(dictcats);
-
-  });
-
-survey.onComplete.add(function(sender, options) {
-  //Show message about "Saving..." the results
-  options.showDataSaving("Resultaten worden opgeslagen..."); //you may pass a text parameter to show your own text
-  // var data = { postId: surveyId, surveyResult: JSON.stringify(sender.data) };
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "code/receive.php");
-  xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-  xhr.onload = xhr.onerror = function() {
-    if (xhr.readyState == 4) {
-      if (xhr.status == 200) {
-        console.log(xhr.responseText)
-        options.showDataSavingSuccess("Resultaten zijn opgeslagen!");
-      } else {
-        console.log(xhr.responseText)
-        options.showDataSavingError("Er is iets mis gegaan bij het opslaan van de resultaten..");
-      };
-    };
-  };
-  var resultsString = JSON.stringify(sender.data)
-  xhr.send(resultsString);
-});
-
-survey.onValidateQuestion.add(function(survey, options) {
-  //the checkbox question 4
-  if (options.name === "question4") {
-    if (options.value && options.value.length < 3) {
-      //Set the error
-      options.error = "Please select a minimum of three values";
-    }
-  }
-  // if (options.name === "question21") {
-  //   var tempResults = processResults(survey)
-  //   tempResults = tempResults.join(" ")
-  //   sessionStorage.results = tempResults;
-  // }
-});
-
-survey.onValueChanged.add(function(survey, options) {
-  if (options.name === "matrix1") {
-    var values = Object.values(options.value)
-    if (values.length > 1) {
-      console.log(options.value)
-    }
-  }
-});
-
-survey.showProgressBar = 'top';
-survey.requiredText = '';
-survey.showQuestionNumbers = 'on';
-survey.storeOthersAsComment = false;
-survey.locale = "my";
-survey.render();
-
-$("#surveyElement")
-  .Survey({
-    model: survey,
-    css: myCss
-  });
