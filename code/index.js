@@ -14,6 +14,11 @@ Survey
   .register("showInitialText", showInitialText);
 
 Survey
+  .FunctionFactory
+  .Instance
+  .register("checkMatrixValue", checkMatrixValue);
+
+Survey
   .StylesManager
   .applyTheme("orange")
 
@@ -69,7 +74,7 @@ var surveyJSON = {
       "name": "panel2",
       "elements": [{
         "type": "radiogroup",
-        "name": "question1",
+        "name": "diversiteit_belangrijk",
         "title": "Vind je het belangrijk om met culturele diversiteit* in jouw werkomgeving aan de slag te gaan?",
         "description": "*met culturele diversiteit bedoelen wij de verscheidenheid aan nationale en etnische achtergronden van medewerkers",
         // "isRequired": true,
@@ -82,9 +87,9 @@ var surveyJSON = {
         }],
       }, {
         "type": "comment",
-        "name": "question2",
+        "name": "waarom_belangrijk",
         "visible": false,
-        "visibleIf": "{question1} = '1'",
+        "visibleIf": "{diversiteit_belangrijk} = '1'",
         "title": "Waarom?",
         // "isRequired": true,
         "validators": [{
@@ -93,9 +98,9 @@ var surveyJSON = {
         }],
       }, {
         "type": "comment",
-        "name": "question3",
+        "name": "waarom_niet_belangrijk",
         "visible": false,
-        "visibleIf": "{question1} = '2'",
+        "visibleIf": "{diversiteit_belangrijk} = '2'",
         "title": "Waarom niet?",
         // "isRequired": true,
         "validators": [{
@@ -112,7 +117,7 @@ var surveyJSON = {
       "name": "panel3",
       "elements": [{
         "type": "checkbox",
-        "name": "question4",
+        "name": "checkbox_stellingen",
         "title": "In jouw organisatie hebben wij medewerkers geïnterviewd over hun ervaringen met culturele diversiteit op de werkvloer. De volgende uitspraken kwamen uit de interviews naar voren:",
         // "isRequired": true,
         "choices": [{
@@ -178,7 +183,7 @@ var surveyJSON = {
         "html": "<p>Wellicht heb je na het lezen van bovenstaande uitspraken nieuwe ideeën opgedaan over het belang van culturele diversiteit in jouw organisatie of helpt het om je eigen visie aan te scherpen.</p>"
       }, {
         "type": "comment",
-        "name": "question5",
+        "name": "toelichting_stellingen",
         // "isRequired": true,
         "validators": [{
           "type": "text",
@@ -232,7 +237,7 @@ var surveyJSON = {
           name: "radio1",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix1} notempty",
+          "visibleIf": "checkMatrixValue('matrix1') > 0",
           choices: [{
             value: answers[0][0].number,
             text: answers[0][0].text,
@@ -278,7 +283,7 @@ var surveyJSON = {
           name: "radio2",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix2} notempty",
+          "visibleIf": "checkMatrixValue('matrix2') > 0",
           choices: [{
             value: answers[1][0].number,
             text: answers[1][0].text,
@@ -324,7 +329,7 @@ var surveyJSON = {
           name: "radio3",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix3} notempty",
+          "visibleIf": "checkMatrixValue('matrix3') > 0",
           choices: [{
             value: answers[2][0].number,
             text: answers[2][0].text,
@@ -370,7 +375,7 @@ var surveyJSON = {
           name: "radio4",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix4} notempty",
+          "visibleIf": "checkMatrixValue('matrix4') > 0",
           choices: [{
             value: answers[3][0].number,
             text: answers[3][0].text,
@@ -416,7 +421,7 @@ var surveyJSON = {
           name: "radio5",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix5} notempty",
+          "visibleIf": "checkMatrixValue('matrix5') > 0",
           choices: [{
             value: answers[4][0].number,
             text: answers[4][0].text,
@@ -462,7 +467,7 @@ var surveyJSON = {
           name: "radio6",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix6} notempty",
+          "visibleIf": "checkMatrixValue('matrix6') > 0",
           choices: [{
             value: answers[5][0].number,
             text: answers[5][0].text,
@@ -509,7 +514,7 @@ var surveyJSON = {
           name: "radio7",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix7} notempty",
+          "visibleIf": "checkMatrixValue('matrix7') > 0",
           choices: [{
             value: answers[6][0].number,
             text: answers[6][0].text,
@@ -555,7 +560,7 @@ var surveyJSON = {
           name: "radio8",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix8} notempty",
+          "visibleIf": "checkMatrixValue('matrix8') > 0",
           choices: [{
             value: answers[7][0].number,
             text: answers[7][0].text,
@@ -601,7 +606,7 @@ var surveyJSON = {
           name: "radio9",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix9} notempty",
+          "visibleIf": "checkMatrixValue('matrix9') > 0",
           choices: [{
             value: answers[8][0].number,
             text: answers[8][0].text,
@@ -647,7 +652,7 @@ var surveyJSON = {
           name: "radio10",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix10} notempty",
+          "visibleIf": "checkMatrixValue('matrix10') > 0",
           choices: [{
             value: answers[9][0].number,
             text: answers[9][0].text,
@@ -693,7 +698,7 @@ var surveyJSON = {
           name: "radio11",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix11} notempty",
+          "visibleIf": "checkMatrixValue('matrix11') > 0",
           choices: [{
             value: answers[10][0].number,
             text: answers[10][0].text,
@@ -739,7 +744,7 @@ var surveyJSON = {
           name: "radio12",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          "visibleIf": "{matrix12} notempty",
+          "visibleIf": "checkMatrixValue('matrix12') > 0",
           choices: [{
             value: answers[11][0].number,
             text: answers[11][0].text,
@@ -784,7 +789,7 @@ var surveyJSON = {
       "name": "panel8",
       "elements": [{
         "type": "radiogroup",
-        "name": "question22",
+        "name": "radio_postnl",
         "title": "Herken jij bovenstaande motivatie van PostNL om in te zetten op culturele diversiteit ook in jouw werkomgeving?",
         "choices": [{
           value: 1,
@@ -795,9 +800,9 @@ var surveyJSON = {
         }],
       }, {
         "type": "comment",
-        "name": "question23",
+        "name": "comment_postnl",
         "visible": false,
-        "visibleIf": "{question22} = 1",
+        "visibleIf": "{radio_postnl} = 1",
         "title": "Indien je je herkent in de motivatie van PostNL om aan de slag te gaan met culturele diversiteit in je werkomgeving, schrijf dan op waarom.",
         // "isRequired": true,
         "validators": [{
@@ -806,9 +811,9 @@ var surveyJSON = {
         }],
       }, {
         "type": "comment",
-        "name": "question24",
+        "name": "comment_postnl_2",
         "visible": false,
-        "visibleIf": "{question22} = 2",
+        "visibleIf": "{radio_postnl} = 2",
         "title": "Indien je je niet herkent in de motivatie van PostNL om aan de slag te gaan met culturele diversiteit in je werkomgeving, schrijf dan op waarom niet.",
         // "isRequired": true,
         "validators": [{
@@ -824,7 +829,7 @@ var surveyJSON = {
       "name": "panel9",
       "elements": [{
         "type": "radiogroup",
-        "name": "question25",
+        "name": "radio_motivatie_organisatie",
         "title": "Nu je meer te weten bent gekomen over de motivatie van jouw organisatie om in te zetten op culturele diversiteit, is je motivatie om met culturele diversiteit aan de slag te gaan veranderd?",
         "choices": [{
           value: 1,
@@ -835,9 +840,9 @@ var surveyJSON = {
         }],
       }, {
         "type": "comment",
-        "name": "question26",
+        "name": "comment_motivatie",
         "visible": false,
-        "visibleIf": "{question25} = 1",
+        "visibleIf": "{radio_motivatie_organisatie} = 1",
         "title": "Beschrijf nogmaals jouw motivatie om aan de slag te gaan met culturele diversiteit in je werkomgeving.",
         // "isRequired": true,
         "validators": [{
@@ -912,7 +917,7 @@ var surveyJSON = {
         "html": "<p><u>Interne resources</u></p><p>Het actief benutten van verschillende perspectieven van medewerkers kan op gestructureerde wijze gebeuren, bijvoorbeeld in de context van vergaderingen, heisessies of projectgroepen.</p><p>1. Vergadering<br>Tijdens vergaderingen zijn er twee fenomenen die maken dat unieke ideeën van medewerkers onbenut blijven:<ul><li>extreme invloed van dominante groepsleden: voor leiders is het vaak bekend wie er het eerste het woord zullen nemen. Omdat we vaak zelf ook een belang hebben bij een agendapunt doen we niet altijd de moeite om alle aanwezigen uitgebreid te bevragen een reactie te geven. Het is ook tijdrovend om iedereen het woord te geven.</li><li>zelfs wanneer iedereen het woord krijgt zijn teamleden vaak geneigd standpunten en perspectieven in te brengen waarvan zij weten dat die gedeeld worden binnen het team. Dat helpt om aardig gevonden  worden in het team en voor binding tussen teamleden. De druk om geen afwijkende standpunten in te brengen is vaak nog groter in diverse teams omdat die vaak minder cohesief zijn. Conflict ligt op de vloer.</li></ul><br></p><p>Als voorzitter is het van belang te  bewaken dat de cohesie tussen de teamleden groot genoeg is. Anders is het zaak de vergadering te beginnen met iets informeels zoals een lunch en te starten met agendapunten waarvan je verwacht dat mensen het wel redelijk eens zullen zijn.<br>Vervolgens is het de kunst voor die agendapunten waarop je graag creatieve input wilt of het belangrijk is dat iedereen echt betrokken raakt om mensen actief uit te nodigen met unieke input te komen. Dat bijvoorbeeld kan door ideeen op post-its te laten schrijven en de postits vervolgens te laten delen met de groep of op flapovers te plakken. Wanneer tijd een issue is kan dat ook door alle teamleden van te voren input te vragen. Nog een andere aanpak is om die leden van de vergadering waarvan je verwacht dat ze een andere opvatting hebben te vragen of zij hun perspectief willen presenteren aan de vergadering. Als voorzitter is het zaak om geventileerde opvatting positief te ontvangen, zelfs wanneer je het er zelf mee oneens bent.</p><img src='img/vergadering.png' alt='graph' style='width:500px;'><p>2.  Projectgroep<br>Een projectgroep is een geschikt middel om de diversiteit in een team te benutten om creatieve oplossingen te genereren of besluitvorming te optimaliseren. Deze kleinschalige samenwerkingsvorm met een kortdurend karakter maakt dat gedrag van mensen meer doelgericht is en minder gestuurd wordt door macht, commitment aan de belangen van specifieke organisatieonderdelen en competitie. Kleinschaligheid stimuleert, weten we uit onderzoek, ook empathie, door de mogelijkheid tot informele en persoonlijke interactie. De diversiteit van het team wordt idealiter zo gekozen dat mensen op verschillende dimensies van elkaar verschillen, zoals geslacht, discipline, organisatieonderdeel, leeftijd en culturele achtergrond. Daarbij is het belangrijk dat verschillen op dimensies niet met elkaar samenhangen, bijvoorbeeld dat alle culturele minderheidsleden jong en vrouw zijn, tegenover een culturele meerderheid van oudere mannen. Dat geeft sterke scheidslijnen waardoor verschillen niet benut willen omdat er te weinig interactie ontstaat over groepsgrenzen. Door in projectgroepen agile te werken kunnen de effecten van diversiteit op innovatie verder versterkt worden. Dit garandeert dat alle groepsleden niet alleen inhoudelijk, maar ook procesmatig bijdragen.</p><img src='img/projectgroep.png' alt='graph' style='width:500px;'><p>3. Heisessie<br>Belangrijke veranderingen in de organisatie, bijvoorbeeld in haar strategie zijn doorgaans het onderwerp van een ‘heisessies’. Buiten de normale werksfeer zijn medewerkers vaak minder gebonden aan rollen en is de openheid voor anderen en andere perspectieven groter. Dat wordt versterkt door de informele kanten van een dagje samen zijn buiten de dagelijkse hectiek. Net als tijdens vergaderingen is het van belang dat de sessieleider bewaakt dat de cohesie tussen de teamleden groot genoeg is. Anders is van belang te starten met een onderdeel dat de gemeenschappelijkheid benadrukt of wederzijds begrip versterkt. Een gevoel van gemeenschappelijkheid ontstaat door samen iets te doen zoals het maken van een spannende wandeling, luisteren naar een optreden of het ophalen van herinneringen om trots op te zijn. Wederzijds begrip ontstaat bijvoorbeeld door ieder groepslid te vragen iets te zeggen over vanuit welke drive of welke waarde hij of zij dit werk doet. Dit wordt versterkt door als groep deze waarden te representeren door middel van een mood board.<br>Wanneer er voldoende onderlinge verbinding is onder de deelnemers is het tijd  om mensen actief uit te nodigen met unieke input te komen. Net als tijdens vergaderingen kan dat door ideeen op post-its te laten schrijven en de postits vervolgens te laten delen met de groep of op flapovers te plakken. Voor de sessieleider is het ook hier zaak om geventileerde opvatting positief te ontvangen.</p><img src='img/heisessie.png' alt='graph' style='width:500px;'>",
       }, {
         "type": "checkbox",
-        "name": "question27",
+        "name": "checkbox_perspectieven",
         "title": "Vink aan op welke wijze jij de verschillende perspectieven van je medewerkers beter wilt gaan benutten.",
         // "isRequired": true,
         "choices": [{
@@ -927,41 +932,6 @@ var surveyJSON = {
         }],
       }]
     }]
-  }, {
-    "name": "page16",
-    "elements": [{
-      "type": "panel",
-      "name": "panel16",
-      "elements": [{
-        "type": "radiogroup",
-        "name": "test1",
-        "title": "Welke auto?",
-        // isRequired: true,
-        "choices": ["Volvo", "Mercedes", "Audi", "Tesla", "Volkswagen", "Range Rover"],
-      }, {
-        "type": "matrix",
-        "name": "test2",
-        "title": "Geef score van 1-5 per auto",
-        "visibleIf": "{test1} notempty",
-        "columns": [{
-          value: 1,
-          text: "Helemaal oneens"
-        }, {
-          value: 2,
-          text: "Oneens"
-        }, {
-          value: 3,
-          text: "Neutraal"
-        }, {
-          value: 4,
-          text: "Eens"
-        }, {
-          value: 5,
-          text: "Helemaal eens"
-        }],
-        rows: ["Volvo", "Mercedes", "Audi", "Tesla", "Volkswagen", "Range Rover"],
-      }],
-    }],
   }],
 };
 
@@ -988,7 +958,7 @@ survey.onComplete.add(function(sender, options) {
   options.showDataSaving("Resultaten worden opgeslagen..."); //you may pass a text parameter to show your own text
   // var data = { postId: surveyId, surveyResult: JSON.stringify(sender.data) };
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "code/receive.php");
+  xhr.open("POST", "code/index.php");
   xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
   xhr.onload = xhr.onerror = function() {
     if (xhr.readyState == 4) {
@@ -1007,27 +977,19 @@ survey.onComplete.add(function(sender, options) {
 
 survey.onValidateQuestion.add(function(survey, options) {
   //the checkbox question 4
-  if (options.name === "question4") {
+  if (options.name === "checkbox_stellingen") {
     if (options.value && options.value.length < 3) {
       //Set the error
       options.error = "Please select a minimum of three values";
     }
   }
-  // if (options.name === "question21") {
+  // if (options.name === "waarom_belangrijk1") {
   //   var tempResults = processResults(survey)
   //   tempResults = tempResults.join(" ")
   //   sessionStorage.results = tempResults;
   // }
 });
 
-survey.onValueChanged.add(function(survey, options) {
-  if (options.name === "matrix1") {
-    var values = Object.values(options.value)
-    if (values.length > 1) {
-      console.log(options.value)
-    }
-  }
-});
 
 survey.showProgressBar = 'top';
 survey.requiredText = '';

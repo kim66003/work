@@ -21,18 +21,17 @@ function categorizeAnswers(params) {
   for (var key in allQuestions) {
     var question = allQuestions[key][0]
 
-    if (question.name === "question2") {
-      // check if answer is filled in and contains 1 or more words !!!
-      console.log(question)
-      var wordsArray = splitByWords(question.value);
-      var wordsMap = createWordMap(wordsArray);
-      var finalWordsArray = sortByCount(wordsMap);
-      var perspectives = countPerspectives(wordsMap)
-      console.log(perspectives)
-      for (var key in perspectives) {
-        for (var dictkey in dictCats) {
-          if (key == dictkey) {
-            dictCats[dictkey] += perspectives[key]
+    if (question.name === "waarom_belangrijk") {
+      if (question.value) {
+        var wordsArray = splitByWords(question.value);
+        var wordsMap = createWordMap(wordsArray);
+        var finalWordsArray = sortByCount(wordsMap);
+        var perspectives = countPerspectives(wordsMap)
+        for (var key in perspectives) {
+          for (var dictkey in dictCats) {
+            if (key == dictkey) {
+              dictCats[dictkey] += perspectives[key]
+            }
           }
         }
       }
@@ -174,7 +173,7 @@ function splitByWords(text) {
 
 function countPerspectives(wordsMap) {
 
-  var wordsQuality = ["kwaliteit", "kwalitatief", "competentie", "kwaliteiten", "capaciteit", "bekwaamheid", "geschikt", "expertise", "competitie"]
+  var wordsQuality = ["kwaliteit", "kwalitatief", "kwaliteiten", "competentie", "competenties", "competente", "kwaliteiten", "capaciteit", "bekwaamheid", "geschikt", "expertise", "competitie"]
   var wordsJustice = ["rechtvaardigheid", "rechtvaardig", "eerlijkheid", "eerlijk", "integriteit", "gelijkwaardig"]
   var wordsAccess = ["toegang", "toegankelijkheid"]
   var wordsLearning = ["leren", "leergierig", "geleerd"]
@@ -236,4 +235,24 @@ function sortByCount(wordsMap) {
 
   return finalWordsArray;
 
+}
+
+function checkMatrixValue(qname) {
+  var question = this.survey.getQuestionByName(qname);
+  var value = question.value;
+  var rows = question.rows;
+  if (value) {
+    var isArrayAnswered = true;
+    rows.forEach(function(row) {
+      if (!(value[row.value])) {
+        isArrayAnswered = false;
+      }
+    })
+  }
+
+  if (isArrayAnswered) {
+    return rows.length;
+  } else {
+    return 0;
+  }
 }
