@@ -55,13 +55,13 @@ function make_dict(list) {
 
 function makeStatements() {
   // arrays of statements from 4 categories
-  var cat_1 = ["1...omdat het onze sociale verantwoordelijkheid is om een afspiegeling te zijn van de maatschappij", "1...als kwaliteitsdoelen maar eerst gewaarborgd zijn", "1...omdat wij als organisatie moeten inspelen op het diverser worden van de markt", "1...omdat teamleden met verschillende culturele achtergronden elkaar versterken", "1...omdat onze klantengroepen ook steeds diverser worden", "1...zolang het maar niet ten koste gaat van het maximaliseren van onze prestaties"]
-  var cat_2 = ["2...omdat het ons helpt als organisatie innovatief te zijn ", "2...omdat wij als organisatie rechtvaardig moeten zijn", "2...omdat het helpt medewerkers te laten reflecteren op het eigen handelen", "2...omdat iemands culturele achtergrond er niet toe doet in het werk, het zijn kwalificaties die tellen", "2...omdat het matchen van medewerkers met klanten/leveranciers op basis van culturele achtergrond ons marktaandeel kan vergroten", "2...omdat wij als organisatie iedereen gelijke kansen moeten bieden"]
-  var cat_3 = ["3...omdat wij medewerkers met een achterstandspositie extra moeten ondersteunen", "3...omdat wij geen onderscheid moeten maken op basis van culturele achtergrond", "3...omdat het ons helpt om tunnelvisie in teams tegen te gaan", "3...omdat kennis en ervaring uit een bepaalde cultuur ons helpt om producten en services af te stemmen op klanten met die cultuur", "3...omdat beoordeling objectief moet zijn, iemands culturele achtergrond speelt hierin geen rol", "3...omdat het ons toegang geeft tot een grotere visvijver aan talent"]
-  var cat_4 = ["4...omdat het ons helpt nieuwe ideeën op de werkvloer te stimuleren", "4...omdat wij culturele minderheden in de organisatie vooruit moeten helpen in hun loopbaan", "4...omdat het ons helpt om vastgeroeste processen te doorbreken", "4...omdat het uiteindelijk gaat om de beste kandidaat, ongeacht iemands culturele achtergrond", "4...omdat wij achterstandsgroepen in de samenleving een kans moeten bieden op werk", "4...omdat het ons een aantrekkelijkere werkgever maakt"]
+  const quality = ["1.1 Het moet in het werk in de eerste plaats gaan om kwaliteit, niet om culturele diversiteit", "1.2 Ik ben van mening dat actief sturen op culturele diversiteit ingaat tegen onze kwaliteitsdoelen", "1.3 Ik sta open voor culturele diversiteit, maar dit is ondergeschikt aan maximale prestaties", "1.4 Ons streven moet zijn de beste mensen te vinden; culturele diversiteit is secundair", "1.5 Bij ons op het werk zou iemands culturele achtergrond er niet toe moeten doen", "1.6 Beoordeling moet objectief zijn; iemands culturele achtergrond zou hierin geen rol moeten spelen", "1.7 Ik ben van mening dat culturele achtergrond niet van belang is bij het selecteren van de beste kandidaat", "1.8 Naar mijn mening is iedereen welkom hier, zolang je maar minstens even goed presteert als de rest"];
+  const justice = ["2.1 Het is onze sociale verantwoordelijkheid een afspiegeling te zijn van de maatschappij", "2.2 Culturele diversiteit is belangrijk omdat wij als organisatie rechtvaardig moeten zijn", "2.3 Culturele diversiteit zie ik als onderdeel van onze doelstellingen in de sfeer van maatschappelijk verantwoord ondernemen", "2.4 Ik beschouw bevordering van culturele diversiteit als maatschappelijke plicht van onze organisatie", "2.5 Wij zouden als organisatie moeten inzetten op gelijke kansen voor culturele minderheden", "2.6 Het is belangrijk dat wij culturele minderheden een kans bieden op werk", "2.7 Wij zouden culturele minderheden in de organisatie extra ondersteuning moeten bieden", "2.8 Ik beschouw het als onze taak culturele minderheden vooruit te helpen in hun loopbaan"];
+  const access = ["3.1 Culturele diversiteit kan ons helpen alle klantengroepen te bereiken ", "3.2 Onze klanten/afnemers kunnen het beste bediend worden door medewerkers met dezelfde culturele achtergrond", "3.3 Culturele diversiteit kan ons helpen producten en dienstverlening af te stemmen op specifieke doelgroepen", "3.4 Culturele diversiteit kan ons helpen toegang te krijgen tot diverse groepen in de samenleving", "3.5 Culturele diversiteit kan ons helpen geloofwaardig te zijn in de ogen van klanten en andere belanghebbenden", "3.6 Culturele diversiteit is belangrijk omdat het ons een aantrekkelijkere werkgever kan maken", "3.7 Culturele diversiteit kan ons helpen draagvlak te creëren in de samenleving", "3.8 Culturele diversiteit in onze organisatie is nodig om relevant te blijven voor de markt"];
+  const learning = ["4.1 Verschillende culturen op de werkvloer kan ons helpen om onderling leren te stimuleren", "4.2 Culturele diversiteit kan ons helpen om als organisatie innovatief te zijn", "4.3 Culturele diversiteit is voor ons van belang omdat teamleden met verschillende achtergronden elkaar kunnen versterken", "4.4 Culturele diversiteit kan ons helpen om vernieuwende ideeën te genereren", "4.5 Culturele diversiteit kan ons helpen om gemakkelijk in te kunnen spelen op veranderingen", "4.6 De aanwezigheid van diverse culturen kan ons helpen verschillende soorten talent beter te herkennen", "4.7 Culturele diversiteit kan ons helpen om tunnelvisie tegen te gaan", "4.8 Ik vind culturele diversiteit belangrijk omdat het kan aanzetten tot reflectie op ons handelen"];
 
-  var length_cat = cat_1.length // integer length of array category
-  var cat_list = [cat_1, cat_2, cat_3, cat_4]; // list of 4 categories with statements
+  var length_cat = quality.length // integer length of array category
+  var cat_list = [quality, justice, access, learning]; // list of 4 categories with statements
   var listdict = make_dict(cat_list) // make dictionary of statements and corresponding values (1-4)
 
   return [listdict, length_cat]
@@ -94,6 +94,14 @@ function answercombinations(statements, length) {
     [
       [3, 2],
       [1, 0]
+    ],
+    [
+      [0, 1],
+      [2, 3]
+    ],
+    [
+      [0, 2],
+      [1, 3]
     ]
   ] // all possible combinations
   for (i = 0; i < length; i++) {
@@ -108,5 +116,6 @@ function answercombinations(statements, length) {
     combi_list.push(combi)
   }
   shuffle(combi_list) // shuffle list of combi statements
+  console.log(combi_list)
   return combi_list // return list of combi statements
 }

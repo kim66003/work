@@ -19,6 +19,11 @@ Survey
   .register("checkMatrixValue", checkMatrixValue);
 
 Survey
+  .FunctionFactory
+  .Instance
+  .register("rowsArray", rowsArray);
+
+Survey
   .StylesManager
   .applyTheme("orange")
 
@@ -51,6 +56,23 @@ var statementsLength = makeStatements()
 var statements = statementsLength[0]
 var length = statementsLength[1]
 var answers = answercombinations(statements, length); // returns random combination and order of statements
+
+const columnsArray = [{
+  value: 1,
+  text: "Helemaal oneens"
+}, {
+  value: 2,
+  text: "Oneens"
+}, {
+  value: 3,
+  text: "Neutraal"
+}, {
+  value: 4,
+  text: "Eens"
+}, {
+  value: 5,
+  text: "Helemaal eens"
+}];
 
 var surveyJSON = {
   // "cookieName": "myuniquesurveyid",
@@ -207,307 +229,98 @@ var surveyJSON = {
           name: "matrix1",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[0][0].number,
-            text: answers[0][0].text,
-            score: answers[0][0].value
-          }, {
-            value: answers[0][1].number,
-            text: answers[0][1].text,
-            score: answers[0][1].value
-          }]
+          columns: columnsArray,
+          rows: rowsArray(0)
         }, {
           type: "radiogroup",
           name: "radio1",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix1') > 0",
-          choices: [{
-            value: answers[0][0].number,
-            text: answers[0][0].text,
-            score: answers[0][0].value,
-          }, {
-            value: answers[0][1].number,
-            text: answers[0][1].text,
-            score: answers[0][1].value,
-          }]
+          choices: rowsArray(0)
         }, {
           type: "matrix",
           name: "matrix2",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio1} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[1][0].number,
-            text: answers[1][0].text,
-            score: answers[1][0].value
-          }, {
-            value: answers[1][1].number,
-            text: answers[1][1].text,
-            score: answers[1][1].value
-          }]
+          columns: columnsArray,
+          rows: rowsArray(1)
         }, {
           type: "radiogroup",
           name: "radio2",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix2') > 0",
-          choices: [{
-            value: answers[1][0].number,
-            text: answers[1][0].text,
-            score: answers[1][0].value,
-          }, {
-            value: answers[1][1].number,
-            text: answers[1][1].text,
-            score: answers[1][1].value,
-          }]
+          choices: rowsArray(1)
         }, {
           type: "matrix",
           name: "matrix3",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio2} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[2][0].number,
-            text: answers[2][0].text,
-            score: answers[2][0].value
-          }, {
-            value: answers[2][1].number,
-            text: answers[2][1].text,
-            score: answers[2][1].value
-          }]
+          columns: columnsArray,
+          rows: rowsArray(2)
         }, {
           type: "radiogroup",
           name: "radio3",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix3') > 0",
-          choices: [{
-            value: answers[2][0].number,
-            text: answers[2][0].text,
-            score: answers[2][0].value,
-          }, {
-            value: answers[2][1].number,
-            text: answers[2][1].text,
-            score: answers[2][1].value,
-          }]
+          choices: rowsArray(2)
         }, {
           type: "matrix",
           name: "matrix4",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio3} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[3][0].number,
-            text: answers[3][0].text,
-            score: answers[3][0].value
-          }, {
-            value: answers[3][1].number,
-            text: answers[3][1].text,
-            score: answers[3][1].value
-          }]
+          columns: columnsArray,
+          rows: rowsArray(3)
         }, {
           type: "radiogroup",
           name: "radio4",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix4') > 0",
-          choices: [{
-            value: answers[3][0].number,
-            text: answers[3][0].text,
-            score: answers[3][0].value,
-          }, {
-            value: answers[3][1].number,
-            text: answers[3][1].text,
-            score: answers[3][1].value,
-          }]
+          choices: rowsArray(3)
         }, {
           type: "matrix",
           name: "matrix5",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio4} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[4][0].number,
-            text: answers[4][0].text,
-            score: answers[4][0].value,
-          }, {
-            value: answers[4][1].number,
-            text: answers[4][1].text,
-            score: answers[4][1].value,
-          }]
+          columns: columnsArray,
+          rows: rowsArray(4)
         }, {
           type: "radiogroup",
           name: "radio5",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix5') > 0",
-          choices: [{
-            value: answers[4][0].number,
-            text: answers[4][0].text,
-            score: answers[4][0].value,
-          }, {
-            value: answers[4][1].number,
-            text: answers[4][1].text,
-            score: answers[4][1].value,
-          }]
+          choices: rowsArray(4)
         }, {
           type: "matrix",
           name: "matrix6",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio5} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[5][0].number,
-            text: answers[5][0].text,
-            score: answers[5][0].value,
-          }, {
-            value: answers[5][1].number,
-            text: answers[5][1].text,
-            score: answers[5][1].value,
-          }]
+          columns: columnsArray,
+          rows: rowsArray(5)
         }, {
           type: "radiogroup",
           name: "radio6",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix6') > 0",
-          choices: [{
-            value: answers[5][0].number,
-            text: answers[5][0].text,
-            score: answers[5][0].value,
-          }, {
-            value: answers[5][1].number,
-            text: answers[5][1].text,
-            score: answers[5][1].value,
-          }]
+          choices: rowsArray(5)
         }, {
           type: "matrix",
           name: "matrix7",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio6} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[6][0].number,
-            text: answers[6][0].text,
-            score: answers[6][0].value,
-          }, {
-            value: answers[6][1].number,
-            text: answers[6][1].text,
-            score: answers[6][1].value,
-          }]
+          columns: columnsArray,
+          rows: rowsArray(6)
         },
         {
           type: "radiogroup",
@@ -515,245 +328,82 @@ var surveyJSON = {
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix7') > 0",
-          choices: [{
-            value: answers[6][0].number,
-            text: answers[6][0].text,
-            score: answers[6][0].value,
-          }, {
-            value: answers[6][1].number,
-            text: answers[6][1].text,
-            score: answers[6][1].value,
-          }]
+          choices: rowsArray(6)
         }, {
           type: "matrix",
           name: "matrix8",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio7} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[7][0].number,
-            text: answers[7][0].text,
-            score: answers[7][0].value,
-          }, {
-            value: answers[7][1].number,
-            text: answers[7][1].text,
-            score: answers[7][1].value,
-          }]
+          columns: columnsArray,
+          rows: rowsArray(7)
         }, {
           type: "radiogroup",
           name: "radio8",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix8') > 0",
-          choices: [{
-            value: answers[7][0].number,
-            text: answers[7][0].text,
-            score: answers[7][0].value,
-          }, {
-            value: answers[7][1].number,
-            text: answers[7][1].text,
-            score: answers[7][1].value,
-          }]
+          choices: rowsArray(7)
         }, {
           type: "matrix",
           name: "matrix9",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio8} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[8][0].number,
-            text: answers[8][0].text,
-            score: answers[8][0].value,
-          }, {
-            value: answers[8][1].number,
-            text: answers[8][1].text,
-            score: answers[8][1].value,
-          }]
+          columns: columnsArray,
+          rows: rowsArray(8)
         }, {
           type: "radiogroup",
           name: "radio9",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix9') > 0",
-          choices: [{
-            value: answers[8][0].number,
-            text: answers[8][0].text,
-            score: answers[8][0].value,
-          }, {
-            value: answers[8][1].number,
-            text: answers[8][1].text,
-            score: answers[8][1].value,
-          }]
+          choices: rowsArray(8)
         }, {
           type: "matrix",
           name: "matrix10",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio9} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[9][0].number,
-            text: answers[9][0].text,
-            score: answers[9][0].value,
-          }, {
-            value: answers[9][1].number,
-            text: answers[9][1].text,
-            score: answers[9][1].value,
-          }]
+          columns: columnsArray,
+          rows: rowsArray(9)
         }, {
           type: "radiogroup",
           name: "radio10",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix10') > 0",
-          choices: [{
-            value: answers[9][0].number,
-            text: answers[9][0].text,
-            score: answers[9][0].value,
-          }, {
-            value: answers[9][1].number,
-            text: answers[9][1].text,
-            score: answers[9][1].value,
-          }]
+          choices: rowsArray(9)
         }, {
           type: "matrix",
           name: "matrix11",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio10} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[10][0].number,
-            text: answers[10][0].text,
-            score: answers[10][0].value,
-          }, {
-            value: answers[10][1].number,
-            text: answers[10][1].text,
-            score: answers[10][1].value,
-          }]
+          columns: columnsArray,
+          rows: rowsArray(10)
         }, {
           type: "radiogroup",
           name: "radio11",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix11') > 0",
-          choices: [{
-            value: answers[10][0].number,
-            text: answers[10][0].text,
-            score: answers[10][0].value,
-          }, {
-            value: answers[10][1].number,
-            text: answers[10][1].text,
-            score: answers[10][1].value,
-          }]
+          choices: rowsArray(10)
         }, {
           type: "matrix",
           name: "matrix12",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           visibleIf: "{radio11} notempty",
-          columns: [{
-            value: 1,
-            text: "Helemaal oneens"
-          }, {
-            value: 2,
-            text: "Oneens"
-          }, {
-            value: 3,
-            text: "Neutraal"
-          }, {
-            value: 4,
-            text: "Eens"
-          }, {
-            value: 5,
-            text: "Helemaal eens"
-          }],
-          rows: [{
-            value: answers[11][0].number,
-            text: answers[11][0].text,
-            score: answers[11][0].value,
-          }, {
-            value: answers[11][1].number,
-            text: answers[11][1].text,
-            score: answers[11][1].value,
-          }]
+          columns: columnsArray,
+          rows: rowsArray(11)
         }, {
           type: "radiogroup",
           name: "radio12",
           title: "Ik steun culturele diversiteit in onze organisatie...",
           // isRequired: true,
           "visibleIf": "checkMatrixValue('matrix12') > 0",
-          choices: [{
-            value: answers[11][0].number,
-            text: answers[11][0].text,
-            score: answers[11][0].value,
-          }, {
-            value: answers[11][1].number,
-            text: answers[11][1].text,
-            score: answers[11][1].value,
-          }]
+          choices: rowsArray(11)
         }
       ],
       "title": "Onderdeel 1: Vragenlijst"
@@ -953,10 +603,30 @@ survey
 
   });
 
+// survey.onPartialSend.add(function(sender, options) {
+//   //Show message about "Saving..." the results
+//   // options.showDataSaving("Resultaten worden opgeslagen..."); //you may pass a text parameter to show your own text
+//   var xhr = new XMLHttpRequest();
+//   xhr.open("POST", "code/index.php");
+//   xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+//   xhr.onload = xhr.onerror = function() {
+//     if (xhr.readyState == 4) {
+//       if (xhr.status == 200) {
+//         console.log(xhr.responseText)
+//         // options.showDataSavingSuccess("Resultaten zijn opgeslagen!");
+//       } else {
+//         console.log(xhr.responseText)
+//         // options.showDataSavingError("Er is iets mis gegaan bij het opslaan van de resultaten..");
+//       };
+//     };
+//   };
+//   var resultsString = JSON.stringify(sender.data)
+//   xhr.send(resultsString);
+// });
+
 survey.onComplete.add(function(sender, options) {
   //Show message about "Saving..." the results
   options.showDataSaving("Resultaten worden opgeslagen..."); //you may pass a text parameter to show your own text
-  // var data = { postId: surveyId, surveyResult: JSON.stringify(sender.data) };
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "code/index.php");
   xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
@@ -996,6 +666,7 @@ survey.requiredText = '';
 survey.showQuestionNumbers = 'on';
 survey.storeOthersAsComment = false;
 survey.locale = "my";
+// survey.sendResultOnPageNext = true;
 survey.render();
 
 $("#surveyElement")

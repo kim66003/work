@@ -256,3 +256,15 @@ function checkMatrixValue(qname) {
     return 0;
   }
 }
+
+function rowsArray(nr) {
+  return [{
+    value: answers[nr][0].number,
+    text: answers[nr][0].text,
+    score: answers[nr][0].value,
+  }, {
+    value: answers[nr][1].number,
+    text: answers[nr][1].text,
+    score: answers[nr][1].value,
+  }];
+}
